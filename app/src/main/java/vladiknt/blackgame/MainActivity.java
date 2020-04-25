@@ -2,9 +2,12 @@ package vladiknt.blackgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private int my_i, enemy_i; // Куда размещать изображение карты на столе
     private Node hidden; // Скрытая карта противника в начале игры
     private Node card1, card2; // Начальные карты игрока
+    private Node ecard; // Первая карта противника
     private int myWins = 0, enemyWins = 0; // Подсчет побед
 
     private boolean secret = false; // Согласен ли пользователь тестить фичи
@@ -25,36 +29,95 @@ public class MainActivity extends AppCompatActivity {
     private int counter = 0; // Сколько раз нажали на мою картинку
 
     private int PAUSE = 3000; // Задержка чтобы успеть посмотреть карты противника
+    private String enemyImage; // Картинка противника для загрузки при выходе из меню помощи
 
+    private int currentLayout = 0; // ID текущего layout для корректной работы системной кнопки возвращенияА
+
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.menu);
+        currentLayout = R.layout.menu;
     }
 
+    // Системная кнопка назад
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        // Обработать вызов
+        switch(currentLayout) {
+            case R.layout.activity_main:
+            case R.layout.settings:
+                menuButton(findViewById(0));
+                break;
+            case R.layout.developer_page:
+            case R.layout.rules:
+                settingsButton(findViewById(0));
+                break;
+            case R.layout.help_page:
+                returnToGame(findViewById(0));
+                break;
+            case R.layout.menu:
+                // Ничего не делать, выход из приложения
+                break;
+        }
+    }
+
+    // Кнопка возвращения в игру
+    public void returnToGame(View view) {
+        setContentView(R.layout.activity_main);
+        currentLayout = R.layout.activity_main;
+        ImageView drawing = findViewById(R.id.drawCard);
+        drawing.setClickable(true);
+        Button stopping = findViewById(R.id.stopDraw);
+        stopping.setClickable(true);
+        TextView help = findViewById(R.id.helpButton);
+        help.setClickable(true);
+
+        // Возвращаем поле с картами как было
+        ImageView ev = findViewById(R.id.enemyImage);
+        ImageView mc1 = getMyView(0);
+        ImageView mc2 = getMyView(1);
+        ImageView ec1 = getEnemyView(0);
+        ImageView ec2 = getEnemyView(1);
+        ev.setImageResource(getApplicationContext().getResources().getIdentifier(enemyImage, null, getApplicationContext().getPackageName()));
+        mc1.setImageResource(getApplicationContext().getResources().getIdentifier("drawable/" + card1.getCardSuit() + card1.getCardName(), null, getApplicationContext().getPackageName()));
+        mc2.setImageResource(getApplicationContext().getResources().getIdentifier("drawable/" + card2.getCardSuit() + card2.getCardName(), null, getApplicationContext().getPackageName()));
+        ec1.setImageResource(getApplicationContext().getResources().getIdentifier("drawable/" + ecard.getCardSuit() + ecard.getCardName(), null, getApplicationContext().getPackageName()));
+        ec2.setImageResource(getApplicationContext().getResources().getIdentifier("drawable/shirt", null, getApplicationContext().getPackageName()));
+        check();
+    }
+    // Кнопка помощи во время игры
+    public void helpButton(View view) {
+        setContentView(R.layout.help_page);
+        currentLayout = R.layout.help_page;
+    }
     // Кнопка входа в настройки
     public void settingsButton(View view) {
         setContentView(R.layout.settings);
+        currentLayout = R.layout.settings;
     }
-
     // Кнопка входа в раздел "о разработчике"
     public void devButton(View view) {
         setContentView(R.layout.developer_page);
+        currentLayout = R.layout.developer_page;
     }
-
     // Кнопка возвращения в меню
     public void menuButton(View view) {
         setContentView(R.layout.menu);
+        currentLayout = R.layout.menu;
         ImageView start = findViewById(R.id.startImage);
         if(secretSex)
             start.setImageResource(getApplicationContext().getResources().getIdentifier("@drawable/start_sex", null, getApplicationContext().getPackageName()));
         else if(secret)
             start.setImageResource(getApplicationContext().getResources().getIdentifier("@drawable/start_secret", null, getApplicationContext().getPackageName()));
     }
-
     // Кнопка входа в правила игры
     public void rulesButton(View view) {
         setContentView(R.layout.rules);
+        currentLayout = R.layout.rules;
     }
 
     // Кнопка соглашения пользователя тестить фичи
@@ -66,8 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 if(counter == 4) {
                     counter++;
                     secret = true;
-                    Toast notification = Toast.makeText(getApplicationContext(), "Вы открыли секретные фичи!", Toast.LENGTH_SHORT);
-                    notification.show();
+                    Toast.makeText(getApplicationContext(), "Вы открыли секретные фичи!", Toast.LENGTH_SHORT).show();
                 } else {
                     counter++;
                 }
@@ -75,8 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 if(counter == 14) {
                     counter++;
                     secretSex = true;
-                    Toast notification = Toast.makeText(getApplicationContext(), "Вы открыли фичи 18+!", Toast.LENGTH_SHORT);
-                    notification.show();
+                    Toast.makeText(getApplicationContext(), "Вы открыли фичи 18+!", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -84,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void newGame(View view) {
         setContentView(R.layout.activity_main);
+        currentLayout = R.layout.activity_main;
         myScore = 0;
         enemyScore = 0;
         my_i = 0;
@@ -91,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         deck = new Deck();
         card1 = null;
         card2 = null;
+        ecard = null;
 
         // Установка аватарки противника
         ImageView image = findViewById(R.id.enemyImage);
@@ -339,6 +402,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
+        enemyImage = str; // Запомнили аватарку противника
         image.setImageResource(getApplicationContext().getResources().getIdentifier(str, null, getApplicationContext().getPackageName()));
 
         Handler handler = new Handler();
@@ -372,18 +436,20 @@ public class MainActivity extends AppCompatActivity {
         drawing.setClickable(true);
         Button stopping = findViewById(R.id.stopDraw);
         stopping.setClickable(true);
+        TextView help = findViewById(R.id.helpButton);
+        help.setClickable(true);
     }
-
     public void getCardButton(View view) {
         getCard();
         check();
     }
-
     public void stopButton(View view) {
         ImageView drawing = findViewById(R.id.drawCard);
         drawing.setClickable(false);
         Button stopping = findViewById(R.id.stopDraw);
         stopping.setClickable(false);
+        TextView help = findViewById(R.id.helpButton);
+        help.setClickable(false);
 
         // Бот вскрывает спрятанную карту
         ImageView iv = getEnemyView(1);
@@ -453,6 +519,7 @@ public class MainActivity extends AppCompatActivity {
         str += card.getCardSuit();
         str += card.getCardName();
 
+        // Запоминаем карты
         if(card1 == null)
             card1 = card;
         else if(card2 == null)
@@ -461,7 +528,6 @@ public class MainActivity extends AppCompatActivity {
        // Установка картинки по названию
         iv.setImageResource(getApplicationContext().getResources().getIdentifier(str, null, getApplicationContext().getPackageName()));
     }
-
     private void enemyGetCard() {
         String str = "drawable/";
         ImageView iv = getEnemyView(enemy_i);
@@ -471,10 +537,13 @@ public class MainActivity extends AppCompatActivity {
         str += card.getCardSuit();
         str += card.getCardName();
 
+        // Запоминаем первую карту противника
+        if(ecard == null)
+            ecard = card;
+
         // Установка картинки по названию
         iv.setImageResource(getApplicationContext().getResources().getIdentifier(str, null, getApplicationContext().getPackageName()));
     }
-
     private void enemyGetCardHidden() {
         String str = "drawable/shirt";
         ImageView iv = getEnemyView(enemy_i);
@@ -502,7 +571,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return (ImageView) findViewById(R.id.card0);
     }
-
     private ImageView getEnemyView(int a) {
         switch(a%5) {
             case 0:
@@ -558,7 +626,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return 0;
     }
-
     private boolean check() {
         TextView tv = findViewById(R.id.my_score);
         TextView etv = findViewById(R.id.enemy_score);
@@ -575,11 +642,14 @@ public class MainActivity extends AppCompatActivity {
             drawing.setClickable(false);
             Button stopping = findViewById(R.id.stopDraw);
             stopping.setClickable(false);
+            TextView help = findViewById(R.id.helpButton);
+            help.setClickable(false);
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     String score;
                     setContentView(R.layout.menu);
+                    currentLayout = R.layout.menu;
                     ImageView start = findViewById(R.id.startImage);
                     if(secretSex)
                         start.setImageResource(getApplicationContext().getResources().getIdentifier("@drawable/start_sex", null, getApplicationContext().getPackageName()));
@@ -626,10 +696,10 @@ public class MainActivity extends AppCompatActivity {
         //TODO дописать проверки (уникальные случаи типа 7+7+7 и т.п.)
         return true;
     }
-
     private void finishGame() {
         String score;
         setContentView(R.layout.menu);
+        currentLayout = R.layout.menu;
         ImageView start = findViewById(R.id.startImage);
         if(secretSex)
             start.setImageResource(getApplicationContext().getResources().getIdentifier("@drawable/start_sex", null, getApplicationContext().getPackageName()));
