@@ -50,6 +50,18 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@color/colorPrimary"
+        android:onClick="changesButton"
+        android:padding="8dp"
+        android:text="Что нового"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorPrimary"
         android:onClick="devButton"
         android:padding="8dp"
         android:text="О разработчике"

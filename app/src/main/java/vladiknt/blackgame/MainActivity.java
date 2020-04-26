@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -43,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Системная кнопка назад
+    long backPressed = 0; // Подсчет времени для выхода из приложения
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             case R.layout.settings:
                 menuButton(findViewById(0));
                 break;
+            case R.layout.changes:
             case R.layout.developer_page:
             case R.layout.rules:
                 settingsButton(findViewById(0));
@@ -60,7 +61,13 @@ public class MainActivity extends AppCompatActivity {
                 returnToGame(findViewById(0));
                 break;
             case R.layout.menu:
-                // Ничего не делать, выход из приложения
+                // выход из приложения
+                if (backPressed + 2000 > System.currentTimeMillis())
+                    super.onBackPressed();
+                else
+                    Toast.makeText(getBaseContext(), "Нажмите еще раз для выхода.",
+                            Toast.LENGTH_SHORT).show();
+                backPressed = System.currentTimeMillis();
                 break;
         }
     }
@@ -119,26 +126,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.rules);
         currentLayout = R.layout.rules;
     }
+    // Кнопка входа в раздел изменений новой версии
+    public void changesButton(View view) {
+        setContentView(R.layout.changes);
+        currentLayout = R.layout.changes;
+    }
 
     // Кнопка соглашения пользователя тестить фичи
     public void secretButton(View view) {
         if(counter < 4)
             counter++;
         else {
-            if(counter < 14) {
-                if(counter == 4) {
-                    counter++;
-                    secret = true;
-                    Toast.makeText(getApplicationContext(), "Вы открыли секретные фичи!", Toast.LENGTH_SHORT).show();
-                } else {
-                    counter++;
-                }
-            } else {
-                if(counter == 14) {
-                    counter++;
-                    secretSex = true;
-                    Toast.makeText(getApplicationContext(), "Вы открыли фичи 18+!", Toast.LENGTH_SHORT).show();
-                }
+            if(counter == 4) {
+                counter++;
+                secret = true;
+                Toast.makeText(getApplicationContext(), "Вы открыли секретные фичи!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    public void secretButton2(View view) {
+        if(counter < 14 && counter > 4) {
+            counter++;
+        } else {
+            if(counter == 14) {
+                counter++;
+                secretSex = true;
+                Toast.makeText(getApplicationContext(), "Вы открыли фичи 18+!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -163,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
                 str = "drawable/admin";
             else {
                 if(secretSex) {
-                    switch ((int) (Math.random() * 1000) % 21) {
+                    switch ((int) (Math.random() * 10000) % 34) {
                         case 0:
                             str = "drawable/girl_sex";
                             break;
@@ -227,9 +240,48 @@ public class MainActivity extends AppCompatActivity {
                         case 20:
                             str = "drawable/girl_sex21";
                             break;
+                        case 21:
+                            str = "drawable/anime_sex";
+                            break;
+                        case 22:
+                            str = "drawable/anime_sex2";
+                            break;
+                        case 23:
+                            str = "drawable/anime_sex3";
+                            break;
+                        case 24:
+                            str = "drawable/anime_sex4";
+                            break;
+                        case 25:
+                            str = "drawable/anime_sex5";
+                            break;
+                        case 26:
+                            str = "drawable/anime_sex6";
+                            break;
+                        case 27:
+                            str = "drawable/anime_sex7";
+                            break;
+                        case 28:
+                            str = "drawable/anime_sex8";
+                            break;
+                        case 29:
+                            str = "drawable/anime_sex9";
+                            break;
+                        case 30:
+                            str = "drawable/anime_sex10";
+                            break;
+                        case 31:
+                            str = "drawable/anime_sex11";
+                            break;
+                        case 32:
+                            str = "drawable/anime_sex12";
+                            break;
+                        case 33:
+                            str = "drawable/anime_sex13";
+                            break;
                     }
                 } else {
-                    switch ((int) (Math.random() * 1000) % 46) {
+                    switch ((int) (Math.random() * 10000) % 51) {
                         case 0:
                             str = "drawable/anime";
                             break;
@@ -339,40 +391,55 @@ public class MainActivity extends AppCompatActivity {
                             str = "drawable/asian35";
                             break;
                         case 36:
-                            str = "drawable/girl";
+                            str = "drawable/asian36";
                             break;
                         case 37:
-                            str = "drawable/girl2";
+                            str = "drawable/girl";
                             break;
                         case 38:
-                            str = "drawable/girl3";
+                            str = "drawable/girl2";
                             break;
                         case 39:
-                            str = "drawable/girl4";
+                            str = "drawable/girl3";
                             break;
                         case 40:
-                            str = "drawable/girl5";
+                            str = "drawable/girl4";
                             break;
                         case 41:
-                            str = "drawable/girl6";
+                            str = "drawable/girl5";
                             break;
                         case 42:
-                            str = "drawable/girl7";
+                            str = "drawable/girl6";
                             break;
                         case 43:
-                            str = "drawable/girl8";
+                            str = "drawable/girl7";
                             break;
                         case 44:
-                            str = "drawable/girl9";
+                            str = "drawable/girl8";
                             break;
                         case 45:
+                            str = "drawable/girl9";
+                            break;
+                        case 46:
                             str = "drawable/girl10";
+                            break;
+                        case 47:
+                            str = "drawable/girl11";
+                            break;
+                        case 48:
+                            str = "drawable/anime2";
+                            break;
+                        case 49:
+                            str = "drawable/anime3";
+                            break;
+                        case 50:
+                            str = "drawable/anime4";
                             break;
                     }
                 }
             }
         } else {
-            switch ((int) (Math.random() * 1000) % 9) {
+            switch ((int) (Math.random() * 10000) % 9) {
                 case 0:
                     str = "drawable/anime_girl";
                     break;
@@ -476,24 +543,22 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
             else if (enemyScore == 19) {
-                prob = 32.0 / 208;
+                prob = 48.0 / 208;
             } else if (enemyScore == 18) {
-                prob = 64.0 / 208;
+                prob = 80.0 / 208;
             } else if (enemyScore == 17) {
-                prob = 96.0 / 208;
-            } else if (enemyScore == 16) {
                 prob = 112.0 / 208;
-            } else if (enemyScore == 15) {
+            } else if (enemyScore == 16) {
                 prob = 128.0 / 208;
-            } else if (enemyScore == 14) {
+            } else if (enemyScore == 15) {
                 prob = 144.0 / 208;
-            } else if (enemyScore == 13) {
+            } else if (enemyScore == 14) {
                 prob = 160.0 / 208;
-            } else if (enemyScore == 12) {
+            } else if (enemyScore == 13) {
                 prob = 176.0 / 208;
-            } else if (enemyScore == 11) {
+            } else if (enemyScore == 12) {
                 prob = 192.0 / 208;
-            } else if (enemyScore <= 10) {
+            } else if (enemyScore <= 11) {
                 prob = 1;
             }
             if (Math.random() > prob) {
@@ -614,12 +679,18 @@ public class MainActivity extends AppCompatActivity {
             case "a":
                 if(player) {
                     if (myScore + 11 > 21)
-                        return 1;
+                        if(myScore == 11 && card2 == null)
+                            return 11;
+                        else
+                            return 1;
                     else
                         return 11;
                 } else {
                     if(enemyScore + 11 > 21)
-                        return 1;
+                        if(hidden != null)
+                            return 11;
+                        else
+                            return 1;
                     else
                         return 11;
                 }
