@@ -44,7 +44,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Black Game v0.2.5"
+            android:text="Black Game v0.3.0"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
@@ -55,7 +55,8 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Добавлен раздел 'Что нового' в меню."
+            android:text="Добавлен раздел 'Кастомизация' в
+меню."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -65,9 +66,9 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Теперь два туза в начале считаются
-не как 12 очков, а как 22 (как и задумывалось изначально по
-правилам)."
+            android:text="Добавлены темы для смены аватарок
+противника. При запуске приложения будет отображаться тема
+'Standart' вместо 'Anime'."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -77,20 +78,8 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Для выхода из приложения теперь на
-стартовой странице можно 2 раза нажать системную кнопку/жест
-'Назад'."
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@color/colorPrimary"
-            android:padding="8dp"
-            android:text="Изменен способ получения 2 уровня
-доступа к фичам."
+            android:text="Начальная заставка обновлена,
+изменено цветовое оформление приложения."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -101,16 +90,6 @@
             android:background="@color/colorPrimary"
             android:padding="8dp"
             android:text="Обновлены ресурсы игры."
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@color/colorPrimary"
-            android:padding="8dp"
-            android:text="Улучшены алгоритмы бота."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 

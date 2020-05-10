@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Node ecard; // Первая карта противника
     private int myWins = 0, enemyWins = 0; // Подсчет побед
 
+    private String theme = "Standart";
     private boolean secret = false; // Согласен ли пользователь тестить фичи
     private boolean secretSex = false; // Картинки 18+
     private int counter = 0; // Сколько раз нажали на мою картинку
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             case R.layout.settings:
                 menuButton(findViewById(0));
                 break;
+            case R.layout.themes:
             case R.layout.changes:
             case R.layout.developer_page:
             case R.layout.rules:
@@ -115,11 +117,6 @@ public class MainActivity extends AppCompatActivity {
     public void menuButton(View view) {
         setContentView(R.layout.menu);
         currentLayout = R.layout.menu;
-        ImageView start = findViewById(R.id.startImage);
-        if(secretSex)
-            start.setImageResource(getApplicationContext().getResources().getIdentifier("@drawable/start_sex", null, getApplicationContext().getPackageName()));
-        else if(secret)
-            start.setImageResource(getApplicationContext().getResources().getIdentifier("@drawable/start_secret", null, getApplicationContext().getPackageName()));
     }
     // Кнопка входа в правила игры
     public void rulesButton(View view) {
@@ -131,8 +128,44 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.changes);
         currentLayout = R.layout.changes;
     }
+    // Кнопка входа в раздел кастомизации
+    public void themeButton(View view) {
+        setContentView(R.layout.themes);
+        currentLayout = R.layout.themes;
+    }
 
     // Кнопка соглашения пользователя тестить фичи
+    public void changeTheme(View view) {
+        switch (view.getId()) {
+            case R.id.BoysTheme:
+                // todo
+                Toast.makeText(getApplicationContext(), "Данная тема не доступна.", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.GirlsTheme:
+                if (secret) {
+                    theme = "Girls";
+                    Toast.makeText(getApplicationContext(), "Тема \"Girls\" активирована.", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(getApplicationContext(), "Не доступно!", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.AnimeTheme:
+                theme = "Anime";
+                Toast.makeText(getApplicationContext(), "Тема \"Anime\" активирована.", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.AsiansTheme:
+                theme = "Asians";
+                Toast.makeText(getApplicationContext(), "Тема \"Asians\" активирована.", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.KPOPTheme:
+                theme = "KPOP";
+                Toast.makeText(getApplicationContext(), "Тема \"KPOP\" активирована.", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.StandartTheme:
+                theme = "Standart";
+                Toast.makeText(getApplicationContext(), "Тема \"Standart\" активирована.", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
     public void secretButton(View view) {
         if(counter < 4)
             counter++;
@@ -140,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
             if(counter == 4) {
                 counter++;
                 secret = true;
-                Toast.makeText(getApplicationContext(), "Вы открыли секретные фичи!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Вы открыли фичи!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -151,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
             if(counter == 14) {
                 counter++;
                 secretSex = true;
-                Toast.makeText(getApplicationContext(), "Вы открыли фичи 18+!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Вы открыли картинки 18+!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -171,303 +204,38 @@ public class MainActivity extends AppCompatActivity {
         // Установка аватарки противника
         ImageView image = findViewById(R.id.enemyImage);
         String str = "";
-        if(secret) {
-            if((int) (Math.random() * 100) == 50)
-                str = "drawable/admin";
-            else {
-                if(secretSex) {
-                    switch ((int) (Math.random() * 10000) % 34) {
-                        case 0:
-                            str = "drawable/girl_sex";
-                            break;
-                        case 1:
-                            str = "drawable/girl_sex2";
-                            break;
-                        case 2:
-                            str = "drawable/girl_sex3";
-                            break;
-                        case 3:
-                            str = "drawable/girl_sex4";
-                            break;
-                        case 4:
-                            str = "drawable/girl_sex5";
-                            break;
-                        case 5:
-                            str = "drawable/girl_sex6";
-                            break;
-                        case 6:
-                            str = "drawable/girl_sex7";
-                            break;
-                        case 7:
-                            str = "drawable/girl_sex8";
-                            break;
-                        case 8:
-                            str = "drawable/girl_sex9";
-                            break;
-                        case 9:
-                            str = "drawable/girl_sex10";
-                            break;
-                        case 10:
-                            str = "drawable/girl_sex11";
-                            break;
-                        case 11:
-                            str = "drawable/girl_sex12";
-                            break;
-                        case 12:
-                            str = "drawable/girl_sex13";
-                            break;
-                        case 13:
-                            str = "drawable/girl_sex14";
-                            break;
-                        case 14:
-                            str = "drawable/girl_sex15";
-                            break;
-                        case 15:
-                            str = "drawable/girl_sex16";
-                            break;
-                        case 16:
-                            str = "drawable/girl_sex17";
-                            break;
-                        case 17:
-                            str = "drawable/girl_sex18";
-                            break;
-                        case 18:
-                            str = "drawable/girl_sex19";
-                            break;
-                        case 19:
-                            str = "drawable/girl_sex20";
-                            break;
-                        case 20:
-                            str = "drawable/girl_sex21";
-                            break;
-                        case 21:
-                            str = "drawable/anime_sex";
-                            break;
-                        case 22:
-                            str = "drawable/anime_sex2";
-                            break;
-                        case 23:
-                            str = "drawable/anime_sex3";
-                            break;
-                        case 24:
-                            str = "drawable/anime_sex4";
-                            break;
-                        case 25:
-                            str = "drawable/anime_sex5";
-                            break;
-                        case 26:
-                            str = "drawable/anime_sex6";
-                            break;
-                        case 27:
-                            str = "drawable/anime_sex7";
-                            break;
-                        case 28:
-                            str = "drawable/anime_sex8";
-                            break;
-                        case 29:
-                            str = "drawable/anime_sex9";
-                            break;
-                        case 30:
-                            str = "drawable/anime_sex10";
-                            break;
-                        case 31:
-                            str = "drawable/anime_sex11";
-                            break;
-                        case 32:
-                            str = "drawable/anime_sex12";
-                            break;
-                        case 33:
-                            str = "drawable/anime_sex13";
-                            break;
-                    }
-                } else {
-                    switch ((int) (Math.random() * 10000) % 51) {
-                        case 0:
-                            str = "drawable/anime";
-                            break;
-                        case 1:
-                            str = "drawable/asian";
-                            break;
-                        case 2:
-                            str = "drawable/asian2";
-                            break;
-                        case 3:
-                            str = "drawable/asian3";
-                            break;
-                        case 4:
-                            str = "drawable/asian4";
-                            break;
-                        case 5:
-                            str = "drawable/asian5";
-                            break;
-                        case 6:
-                            str = "drawable/asian6";
-                            break;
-                        case 7:
-                            str = "drawable/asian7";
-                            break;
-                        case 8:
-                            str = "drawable/asian8";
-                            break;
-                        case 9:
-                            str = "drawable/asian9";
-                            break;
-                        case 10:
-                            str = "drawable/asian10";
-                            break;
-                        case 11:
-                            str = "drawable/asian11";
-                            break;
-                        case 12:
-                            str = "drawable/asian12";
-                            break;
-                        case 13:
-                            str = "drawable/asian13";
-                            break;
-                        case 14:
-                            str = "drawable/asian14";
-                            break;
-                        case 15:
-                            str = "drawable/asian15";
-                            break;
-                        case 16:
-                            str = "drawable/asian16";
-                            break;
-                        case 17:
-                            str = "drawable/asian17";
-                            break;
-                        case 18:
-                            str = "drawable/asian18";
-                            break;
-                        case 19:
-                            str = "drawable/asian19";
-                            break;
-                        case 20:
-                            str = "drawable/asian20";
-                            break;
-                        case 21:
-                            str = "drawable/asian21";
-                            break;
-                        case 22:
-                            str = "drawable/asian22";
-                            break;
-                        case 23:
-                            str = "drawable/asian23";
-                            break;
-                        case 24:
-                            str = "drawable/asian24";
-                            break;
-                        case 25:
-                            str = "drawable/asian25";
-                            break;
-                        case 26:
-                            str = "drawable/asian26";
-                            break;
-                        case 27:
-                            str = "drawable/asian27";
-                            break;
-                        case 28:
-                            str = "drawable/asian28";
-                            break;
-                        case 29:
-                            str = "drawable/asian29";
-                            break;
-                        case 30:
-                            str = "drawable/asian30";
-                            break;
-                        case 31:
-                            str = "drawable/asian31";
-                            break;
-                        case 32:
-                            str = "drawable/asian32";
-                            break;
-                        case 33:
-                            str = "drawable/asian33";
-                            break;
-                        case 34:
-                            str = "drawable/asian34";
-                            break;
-                        case 35:
-                            str = "drawable/asian35";
-                            break;
-                        case 36:
-                            str = "drawable/asian36";
-                            break;
-                        case 37:
-                            str = "drawable/girl";
-                            break;
-                        case 38:
-                            str = "drawable/girl2";
-                            break;
-                        case 39:
-                            str = "drawable/girl3";
-                            break;
-                        case 40:
-                            str = "drawable/girl4";
-                            break;
-                        case 41:
-                            str = "drawable/girl5";
-                            break;
-                        case 42:
-                            str = "drawable/girl6";
-                            break;
-                        case 43:
-                            str = "drawable/girl7";
-                            break;
-                        case 44:
-                            str = "drawable/girl8";
-                            break;
-                        case 45:
-                            str = "drawable/girl9";
-                            break;
-                        case 46:
-                            str = "drawable/girl10";
-                            break;
-                        case 47:
-                            str = "drawable/girl11";
-                            break;
-                        case 48:
-                            str = "drawable/anime2";
-                            break;
-                        case 49:
-                            str = "drawable/anime3";
-                            break;
-                        case 50:
-                            str = "drawable/anime4";
-                            break;
-                    }
-                }
-            }
-        } else {
-            switch ((int) (Math.random() * 10000) % 9) {
-                case 0:
-                    str = "drawable/anime_girl";
-                    break;
-                case 1:
-                    str = "drawable/anime_girl2";
-                    break;
-                case 2:
-                    str = "drawable/anime_girl3";
-                    break;
-                case 3:
-                    str = "drawable/anime_girl4";
-                    break;
-                case 4:
-                    str = "drawable/anime_girl5";
-                    break;
-                case 5:
-                    str = "drawable/anime_girl6";
-                    break;
-                case 6:
-                    str = "drawable/anime_girl7";
-                    break;
-                case 7:
-                    str = "drawable/anime_girl8";
-                    break;
-                case 8:
-                    str = "drawable/anime_girl9";
-                    break;
-            }
+        switch (theme) {
+            case "Standart":
+                str = "drawable/standart" + ((int)(Math.random()*100000)%7 + 1);
+                break;
+            case "Anime":
+                if (secretSex)
+                    str = "drawable/anime18_" + ((int)(Math.random()*100000)%14 + 1);
+                else if (secret)
+                    str = "drawable/anime_" + ((int)(Math.random()*100000)%4 + 1);
+                else
+                    str = "drawable/anime" + ((int)(Math.random()*100000)%8 + 1);
+                break;
+            case "Asians":
+                if (secretSex)
+                    str = "drawable/asian18_" + ((int)(Math.random()*100000)%17 + 1);
+                else if (secret)
+                    str = "drawable/asian_" + ((int)(Math.random()*100000)%25 + 1);
+                else
+                    str = "drawable/asian" + ((int)(Math.random()*100000)%6 + 1);
+                break;
+            case "Boys":
+                // todo добавить тему мальчиков
+                break;
+            case "Girls":
+                if (secretSex)
+                    str = "drawable/girl18_" + ((int)(Math.random()*100000)%7 + 1);
+                else
+                    str = "drawable/girl_" + ((int)(Math.random()*100000)%10 + 1);
+                break;
+            case "KPOP":
+                str = "drawable/kpop" + ((int)(Math.random()*100000)%19 + 1);
+                break;
         }
         enemyImage = str; // Запомнили аватарку противника
         image.setImageResource(getApplicationContext().getResources().getIdentifier(str, null, getApplicationContext().getPackageName()));
@@ -721,11 +489,6 @@ public class MainActivity extends AppCompatActivity {
                     String score;
                     setContentView(R.layout.menu);
                     currentLayout = R.layout.menu;
-                    ImageView start = findViewById(R.id.startImage);
-                    if(secretSex)
-                        start.setImageResource(getApplicationContext().getResources().getIdentifier("@drawable/start_sex", null, getApplicationContext().getPackageName()));
-                    else if(secret)
-                        start.setImageResource(getApplicationContext().getResources().getIdentifier("@drawable/start_secret", null, getApplicationContext().getPackageName()));
 
                     TextView finish = findViewById(R.id.finish);
                     if(card1.getCardName().equals("a") && card2.getCardName().equals("a")) { // Если в начале игры в руке 2 туза
@@ -771,11 +534,6 @@ public class MainActivity extends AppCompatActivity {
         String score;
         setContentView(R.layout.menu);
         currentLayout = R.layout.menu;
-        ImageView start = findViewById(R.id.startImage);
-        if(secretSex)
-            start.setImageResource(getApplicationContext().getResources().getIdentifier("@drawable/start_sex", null, getApplicationContext().getPackageName()));
-        else if(secret)
-            start.setImageResource(getApplicationContext().getResources().getIdentifier("@drawable/start_secret", null, getApplicationContext().getPackageName()));
 
         TextView finish = findViewById(R.id.finish);
         if(myScore == enemyScore) {

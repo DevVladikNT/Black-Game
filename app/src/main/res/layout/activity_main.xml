@@ -28,7 +28,7 @@
                 android:onClick="helpButton"
                 android:padding="4dp"
                 android:text="HELP"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="20sp" />
 
             <TextView
@@ -62,7 +62,7 @@
             android:layout_marginEnd="8dp"
             android:layout_weight="5"
             android:scaleType="centerCrop"
-            android:src="@drawable/anime_girl" />
+            android:src="@drawable/anime1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -163,7 +163,7 @@
                 android:clickable="false"
                 android:onClick="stopButton"
                 android:text="stop"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </LinearLayout>
 
