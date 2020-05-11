@@ -67,8 +67,8 @@
                 android:background="@color/colorPrimary"
                 android:padding="8dp"
                 android:text="Нажмите на кнопку с изображением
-рубашки, чтобы взять еще карту. Нажмите на оранжевую кнопку STOP
-чтобы остановиться и передать ход оппоненту."
+рубашки, чтобы взять еще карту. Нажмите на кнопку STOP чтобы
+остановиться и передать ход оппоненту."
                 android:textColor="#FFFFFF"
                 android:textSize="16sp" />
 

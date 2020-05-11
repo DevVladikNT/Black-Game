@@ -58,7 +58,8 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
-                    android:onClick="changeTheme" />
+                    android:onClick="changeTheme"
+                    android:src="@drawable/boy3" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -86,7 +87,7 @@
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
                     android:onClick="changeTheme"
-                    android:src="@drawable/girls_theme" />
+                    android:src="@drawable/girl4" />
 
                 <TextView
                     android:layout_width="match_parent"

@@ -13,6 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/*
+ * Если код работает, то его написал
+ * Васильев Владислав. А если не работает,
+ * то не знаю кто его написал. XD
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private Deck deck; // Колода (шуз)
@@ -134,19 +140,15 @@ public class MainActivity extends AppCompatActivity {
         currentLayout = R.layout.themes;
     }
 
-    // Кнопка соглашения пользователя тестить фичи
     public void changeTheme(View view) {
         switch (view.getId()) {
             case R.id.BoysTheme:
-                // todo
-                Toast.makeText(getApplicationContext(), "Данная тема не доступна.", Toast.LENGTH_SHORT).show();
+                theme = "Boys";
+                Toast.makeText(getApplicationContext(), "Тема \"Boys\" активирована.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.GirlsTheme:
-                if (secret) {
-                    theme = "Girls";
-                    Toast.makeText(getApplicationContext(), "Тема \"Girls\" активирована.", Toast.LENGTH_SHORT).show();
-                } else
-                    Toast.makeText(getApplicationContext(), "Не доступно!", Toast.LENGTH_SHORT).show();
+                theme = "Girls";
+                Toast.makeText(getApplicationContext(), "Тема \"Girls\" активирована.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.AnimeTheme:
                 theme = "Anime";
@@ -166,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+    // Кнопка соглашения пользователя тестить фичи
     public void secretButton(View view) {
         if(counter < 4)
             counter++;
@@ -210,28 +213,30 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "Anime":
                 if (secretSex)
-                    str = "drawable/anime18_" + ((int)(Math.random()*100000)%14 + 1);
+                    str = "drawable/anime18_" + ((int)(Math.random()*100000)%16 + 1);
                 else if (secret)
-                    str = "drawable/anime_" + ((int)(Math.random()*100000)%4 + 1);
+                    str = "drawable/anime_" + ((int)(Math.random()*100000)%5 + 1);
                 else
                     str = "drawable/anime" + ((int)(Math.random()*100000)%8 + 1);
                 break;
             case "Asians":
                 if (secretSex)
-                    str = "drawable/asian18_" + ((int)(Math.random()*100000)%17 + 1);
+                    str = "drawable/asian18_" + ((int)(Math.random()*100000)%22 + 1);
                 else if (secret)
-                    str = "drawable/asian_" + ((int)(Math.random()*100000)%25 + 1);
+                    str = "drawable/asian_" + ((int)(Math.random()*100000)%27 + 1);
                 else
-                    str = "drawable/asian" + ((int)(Math.random()*100000)%6 + 1);
+                    str = "drawable/asian" + ((int)(Math.random()*100000)%13 + 1);
                 break;
             case "Boys":
-                // todo добавить тему мальчиков
+                str = "drawable/boy" + ((int)(Math.random()*100000)%10 + 1);
                 break;
             case "Girls":
                 if (secretSex)
                     str = "drawable/girl18_" + ((int)(Math.random()*100000)%7 + 1);
-                else
+                else if (secret)
                     str = "drawable/girl_" + ((int)(Math.random()*100000)%10 + 1);
+                else
+                    str = "drawable/girl" + ((int)(Math.random()*100000)%10 + 1);
                 break;
             case "KPOP":
                 str = "drawable/kpop" + ((int)(Math.random()*100000)%19 + 1);
