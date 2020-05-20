@@ -44,7 +44,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Black Game v0.3.1"
+            android:text="Black Game v0.4.0"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
@@ -55,18 +55,8 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Добавлены темы 'Boys' и 'Girls'
-для смены аватарок противника."
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@color/colorPrimary"
-            android:padding="8dp"
-            android:text="Исправлена опечатка в описании правил."
+            android:text="Добавлена новая игра 'Roulette' -
+рулетка. В связи с этим изменена стартовая страничка."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 

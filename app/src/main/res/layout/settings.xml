@@ -17,7 +17,7 @@
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
             android:background="@color/colorAccent"
-            android:onClick="menuButton"
+            android:onClick="startPageButton"
             android:padding="8dp"
             android:src="@drawable/return_arrow" />
 

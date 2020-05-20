@@ -17,9 +17,9 @@
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
             android:background="@color/colorAccent"
-            android:onClick="startPageButton"
+            android:onClick="settingsButton"
             android:padding="8dp"
-            android:src="@drawable/return_arrow" />
+            android:src="@drawable/menu_bars" />
 
         <TextView
             android:layout_width="match_parent"
@@ -36,16 +36,14 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/startImage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
         android:layout_weight="1"
         android:scaleType="centerCrop"
-        android:src="@drawable/start" />
+        android:src="@drawable/start"
+        android:onClick="menuButton" />
 
     <TextView
-        android:id="@+id/finish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -56,13 +54,20 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/start2"
+        android:onClick="menuRouletteButton" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:onClick="newGame"
         android:padding="8dp"
-        android:text="New Game"
+        android:text="Roulette"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />

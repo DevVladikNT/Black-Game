@@ -1,4 +1,6 @@
-package vladiknt.blackgame;
+package vladiknt.blackgame.blackjack;
+
+import vladiknt.blackgame.blackjack.Node;
 
 public class CardList {
 

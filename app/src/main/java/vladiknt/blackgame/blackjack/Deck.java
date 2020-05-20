@@ -1,4 +1,4 @@
-package vladiknt.blackgame;
+package vladiknt.blackgame.blackjack;
 
 public class Deck {
 
