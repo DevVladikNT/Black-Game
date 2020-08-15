@@ -13,10 +13,11 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:elevation="4dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
-            android:background="@color/colorAccent"
+            android:background="@drawable/buttons_style_a"
             android:onClick="settingsButton"
             android:padding="8dp"
             android:src="@drawable/menu_bars" />
@@ -25,13 +26,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:autoLink="web"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/buttons_style_p"
             android:padding="10dp"
-            android:text="Join us: vk.com/game_dev_spb"
+            android:text="Black Game"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textColorLink="#FFFFFF"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -47,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/rounded_info_bottom"
         android:padding="8dp"
         android:text="Black Jack"
         android:textAlignment="center"
@@ -65,7 +66,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/rounded_info_bottom"
         android:padding="8dp"
         android:text="Roulette"
         android:textAlignment="center"

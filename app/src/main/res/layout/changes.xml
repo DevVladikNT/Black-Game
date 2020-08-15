@@ -13,10 +13,11 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:elevation="4dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
-            android:background="@color/colorAccent"
+            android:background="@drawable/buttons_style_a"
             android:onClick="settingsButton"
             android:padding="8dp"
             android:src="@drawable/return_arrow" />
@@ -24,30 +25,30 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/colorPrimary"
-            android:padding="10dp"
+            android:background="@drawable/buttons_style_p"
             android:text="Что нового"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textColor="#FFFFFF"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/colorPrimary"
-            android:padding="8dp"
-            android:text="Black Game v0.4.0"
-            android:textAlignment="center"
+            android:background="@drawable/rounded_info_top"
+            android:text="Black Game v0.4.1"
+            android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
+
 
         <TextView
             android:layout_width="match_parent"
@@ -55,8 +56,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Добавлена новая игра 'Roulette' -
-рулетка. В связи с этим изменена стартовая страничка."
+            android:text="Обновлены элементы интерфейса приложения."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -66,10 +66,33 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Обновлены ресурсы игры."
+            android:text="Заменён один из разделов во вкладке
+кастомизации. Изображения старого раздела объединены с другими."
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_info_bottom"
+            android:padding="8dp"
+            android:text="Обновлены ресурсы приложения."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:autoLink="web"
+        android:background="@drawable/buttons_style_p"
+        android:padding="8dp"
+        android:text="Новые версии приложения доступны в нашей
+группе: vk.com/game_dev_spb"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="16sp" />
 
 </LinearLayout>

@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean secretSex = false; // Картинки 18+
     private int counter = 0; // Сколько раз нажали на мою картинку
 
-    private int currentLayout = 0; // ID текущего layout для корректной работы системной кнопки возвращенияА
+    private int currentLayout = 0; // ID текущего layout для корректной работы системной кнопки возвращения
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -166,9 +166,9 @@ public class MainActivity extends AppCompatActivity {
                 theme = "Asians";
                 Toast.makeText(getApplicationContext(), "Тема \"Asians\" активирована.", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.KPOPTheme:
-                theme = "KPOP";
-                Toast.makeText(getApplicationContext(), "Тема \"KPOP\" активирована.", Toast.LENGTH_SHORT).show();
+            case R.id.BWTheme:
+                theme = "BW";
+                Toast.makeText(getApplicationContext(), "Тема \"BlackWhite\" активирована.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.StandartTheme:
                 theme = "Standart";
@@ -236,19 +236,19 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "Anime":
                 if (secretSex)
-                    str = "drawable/anime18_" + ((int)(Math.random()*100000)%16 + 1);
+                    str = "drawable/anime18_" + ((int)(Math.random()*100000)%17 + 1);
                 else if (secret)
                     str = "drawable/anime_" + ((int)(Math.random()*100000)%5 + 1);
                 else
-                    str = "drawable/anime" + ((int)(Math.random()*100000)%8 + 1);
+                    str = "drawable/anime" + ((int)(Math.random()*100000)%9 + 1);
                 break;
             case "Asians":
                 if (secretSex)
                     str = "drawable/asian18_" + ((int)(Math.random()*100000)%22 + 1);
                 else if (secret)
-                    str = "drawable/asian_" + ((int)(Math.random()*100000)%27 + 1);
+                    str = "drawable/asian_" + ((int)(Math.random()*100000)%32 + 1);
                 else
-                    str = "drawable/asian" + ((int)(Math.random()*100000)%13 + 1);
+                    str = "drawable/asian" + ((int)(Math.random()*100000)%30 + 1);
                 break;
             case "Boys":
                 str = "drawable/boy" + ((int)(Math.random()*100000)%10 + 1);
@@ -257,12 +257,17 @@ public class MainActivity extends AppCompatActivity {
                 if (secretSex)
                     str = "drawable/girl18_" + ((int)(Math.random()*100000)%7 + 1);
                 else if (secret)
-                    str = "drawable/girl_" + ((int)(Math.random()*100000)%10 + 1);
+                    str = "drawable/girl_" + ((int)(Math.random()*100000)%12 + 1);
                 else
-                    str = "drawable/girl" + ((int)(Math.random()*100000)%10 + 1);
+                    str = "drawable/girl" + ((int)(Math.random()*100000)%12 + 1);
                 break;
-            case "KPOP":
-                str = "drawable/kpop" + ((int)(Math.random()*100000)%19 + 1);
+            case "BW":
+                if (secretSex)
+                    str = "drawable/bw18_" + ((int)(Math.random()*100000)%14 + 1);
+                else if (secret)
+                    str = "drawable/bw_" + ((int)(Math.random()*100000)%15 + 1);
+                else
+                    str = "drawable/bw" + ((int)(Math.random()*100000)%10 + 1);
                 break;
         }
         enemyImage = str; // Запомнили аватарку противника

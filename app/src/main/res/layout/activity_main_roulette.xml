@@ -15,15 +15,19 @@
         android:src="@drawable/roulette" />
 
     <TextView
+        android:elevation="4dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/buttons_style_p"
         android:onClick="acceptAnswer"
-        android:padding="4dp"
+        android:paddingStart="12dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="4dp"
         android:text="Нажмите, чтобы подтвердить ставку."
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="20dp" />
 
@@ -34,7 +38,7 @@
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent"
+            android:background="@drawable/buttons_style_a"
             android:columnCount="14"
             android:padding="4dp"
             android:rowCount="5">

@@ -13,10 +13,11 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:elevation="4dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
-            android:background="@color/colorAccent"
+            android:background="@drawable/buttons_style_a"
             android:onClick="settingsButton"
             android:padding="8dp"
             android:src="@drawable/return_arrow" />
@@ -24,13 +25,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/buttons_style_p"
             android:onClick="secretButton2"
-            android:padding="10dp"
             android:text="О разработчике"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textColor="#FFFFFF"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/rounded_info_top"
         android:padding="8dp"
         android:text="Меня зовут Васильев Владислав и
 я очень надеюсь, что вам понравилось моё приложение."
