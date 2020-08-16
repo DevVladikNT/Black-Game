@@ -18,7 +18,7 @@
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/buttons_style_a"
-            android:onClick="startPageButton"
+            android:onClick="backButton"
             android:padding="8dp"
             android:src="@drawable/return_arrow" />
 
@@ -49,8 +49,7 @@
         android:layout_marginBottom="16dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/buttons_style_p"
-        android:onClick="newSpin"
+        android:background="@drawable/buttons_hidden"
         android:text="\\/"
         android:gravity="center"
         android:textColor="#FFFFFF"

@@ -18,7 +18,7 @@
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/buttons_style_a"
-            android:onClick="settingsButton"
+            android:onClick="backButton"
             android:padding="8dp"
             android:src="@drawable/return_arrow" />
 
@@ -44,7 +44,7 @@
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_info_top"
-            android:text="Black Game v0.4.1"
+            android:text="Black Game v0.4.2"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
@@ -56,7 +56,8 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Обновлены элементы интерфейса приложения."
+            android:text="Оптимизация была повышена. Приложение было
+полностью переписано, в результате чего обновления будут выходить чаще."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -66,8 +67,19 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Заменён один из разделов во вкладке
-кастомизации. Изображения старого раздела объединены с другими."
+            android:text="Изменены описания в разделах 'Правила
+игры' и 'О разработчике'."
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:text="Улучшено взаимодействие между элементами
+интерфейса."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 

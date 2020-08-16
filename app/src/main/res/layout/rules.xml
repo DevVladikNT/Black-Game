@@ -18,7 +18,7 @@
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/buttons_style_a"
-            android:onClick="settingsButton"
+            android:onClick="backButton"
             android:padding="8dp"
             android:src="@drawable/return_arrow" />
 
@@ -41,6 +41,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/buttons_hidden"
+                android:padding="8dp"
+                android:text="Данные правила приведены для
+игры Black Jack. В игре Roulette достаточно нажать на выбранную
+позицию, описывающую числа, которые по вашему мнению могут
+выпасть и нажать соответствующую кнопку, подтверждающую выбор."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
