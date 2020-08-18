@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
@@ -7,6 +7,7 @@
     android:padding="16dp">
 
     <LinearLayout
+        android:id="@+id/settingsActivityTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -17,7 +18,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/buttons_style_a"
+            android:background="@drawable/buttons_style_ad"
             android:onClick="backButton"
             android:padding="8dp"
             android:src="@drawable/return_arrow" />
@@ -33,62 +34,127 @@
 
     </LinearLayout>
 
-    <TextView
-        android:elevation="2dp"
+    <LinearLayout
+        android:layout_below="@id/settingsActivityTop"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/rounded_info_top"
-        android:onClick="rulesButton"
-        android:text="Правила игры"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <TextView
+        <TextView
+            android:elevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_info_top"
+            android:onClick="rulesButton"
+            android:text="Правила игры"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:elevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:onClick="themeButton"
+            android:text="Кастомизация"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:elevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:onClick="statisticsButton"
+            android:text="Статистика"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:elevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:onClick="changesButton"
+            android:text="Что нового"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:elevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:onClick="devButton"
+            android:text="О разработчике"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:elevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_info_bottom"
+            android:text="Раздел будет расширен позже :)"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:elevation="2dp"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimary"
-        android:onClick="themeButton"
-        android:text="Кастомизация"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons_hidden"
+        android:orientation="vertical"
+        android:padding="8dp">
 
-    <TextView
-        android:elevation="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimary"
-        android:onClick="changesButton"
-        android:text="Что нового"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Введите промокод"
+            android:textColor="#FFFFFF"/>
 
-    <TextView
-        android:elevation="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimary"
-        android:onClick="devButton"
-        android:text="О разработчике"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <TextView
-        android:elevation="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/rounded_info_bottom"
-        android:text="Раздел будет расширен позже :)"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+            <EditText
+                android:id="@+id/giftCode"
+                android:text="Ввести..."
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"/>
 
-</LinearLayout>
+            <ImageView
+                android:onClick="giftCodeButton"
+                android:padding="6dp"
+                android:elevation="2dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/buttons_style_a"
+                android:src="@drawable/send_logo"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

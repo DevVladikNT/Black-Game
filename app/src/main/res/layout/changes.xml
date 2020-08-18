@@ -17,7 +17,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/buttons_style_a"
+            android:background="@drawable/buttons_style_ad"
             android:onClick="backButton"
             android:padding="8dp"
             android:src="@drawable/return_arrow" />
@@ -44,20 +44,18 @@
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_info_top"
-            android:text="Black Game v0.4.2"
+            android:text="Black Game v0.5.0"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Оптимизация была повышена. Приложение было
-полностью переписано, в результате чего обновления будут выходить чаще."
+            android:text="Введена игровая валюта."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -67,8 +65,9 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Изменены описания в разделах 'Правила
-игры' и 'О разработчике'."
+            android:text="Добавлен пункт меню 'Статистика'.
+Статистика и последняя выбранная тема сохраняются после
+выхода из приложения."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -78,8 +77,19 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Улучшено взаимодействие между элементами
-интерфейса."
+            android:text="В меню добавлено поле для ввода
+промокодов."
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:text="Исправлены некоторые ошибки в работе
+приложения. Улучшена анимация прокрутки шарика в Roulette."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 

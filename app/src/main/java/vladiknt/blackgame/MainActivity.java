@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ImageView iv = findViewById(R.id.drawCard);
+        iv.setClickable(false);
+        Button btn = findViewById(R.id.stopDraw);
+        btn.setClickable(false);
         newGame();
     }
 
@@ -58,30 +62,30 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "Anime":
                 if (PlayerInfo.secretSex)
-                    str = "drawable/anime18_" + ((int)(Math.random()*100000)%17 + 1);
+                    str = "drawable/anime18_" + ((int)(Math.random()*100000)%21 + 1);
                 else if (PlayerInfo.secret)
-                    str = "drawable/anime_" + ((int)(Math.random()*100000)%5 + 1);
+                    str = "drawable/anime_" + ((int)(Math.random()*100000)%14 + 1);
                 else
                     str = "drawable/anime" + ((int)(Math.random()*100000)%9 + 1);
                 break;
             case "Asians":
                 if (PlayerInfo.secretSex)
-                    str = "drawable/asian18_" + ((int)(Math.random()*100000)%22 + 1);
+                    str = "drawable/asian18_" + ((int)(Math.random()*100000)%27 + 1);
                 else if (PlayerInfo.secret)
-                    str = "drawable/asian_" + ((int)(Math.random()*100000)%32 + 1);
+                    str = "drawable/asian_" + ((int)(Math.random()*100000)%40 + 1);
                 else
-                    str = "drawable/asian" + ((int)(Math.random()*100000)%30 + 1);
+                    str = "drawable/asian" + ((int)(Math.random()*100000)%32 + 1);
                 break;
             case "Boys":
                 str = "drawable/boy" + ((int)(Math.random()*100000)%10 + 1);
                 break;
             case "Girls":
                 if (PlayerInfo.secretSex)
-                    str = "drawable/girl18_" + ((int)(Math.random()*100000)%7 + 1);
+                    str = "drawable/girl18_" + ((int)(Math.random()*100000)%11 + 1);
                 else if (PlayerInfo.secret)
-                    str = "drawable/girl_" + ((int)(Math.random()*100000)%12 + 1);
+                    str = "drawable/girl_" + ((int)(Math.random()*100000)%19 + 1);
                 else
-                    str = "drawable/girl" + ((int)(Math.random()*100000)%12 + 1);
+                    str = "drawable/girl" + ((int)(Math.random()*100000)%21 + 1);
                 break;
             case "BW":
                 if (PlayerInfo.secretSex)
@@ -119,15 +123,12 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 enemyGetCardHidden();
                 check();
+                ImageView iv = findViewById(R.id.drawCard);
+                iv.setClickable(true);
+                Button btn = findViewById(R.id.stopDraw);
+                btn.setClickable(true);
             }
         }, 2000);
-
-        ImageView drawing = findViewById(R.id.drawCard);
-        drawing.setClickable(true);
-        Button stopping = findViewById(R.id.stopDraw);
-        stopping.setClickable(true);
-        TextView help = findViewById(R.id.helpButton);
-        help.setClickable(true);
     }
     public void getCardButton(View view) {
         getCard();
@@ -343,23 +344,30 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     String score = "";
                     if(card1.getCardName().equals("a") && card2.getCardName().equals("a")) { // Если в начале игры в руке 2 туза
-                        PlayerInfo.myWins++;
-                        score = "Победа! " + PlayerInfo.myWins + ":" + PlayerInfo.enemyWins;
+                        PlayerInfo.winsCounterBJ++;
+                        PlayerInfo.reward = PlayerInfo.bet * 3;
+                        score = "Победа!";
                     } else {
                         if (myScore == 21) {
-                            PlayerInfo.myWins++;
-                            score = "Победа! " + PlayerInfo.myWins + ":" + PlayerInfo.enemyWins;
+                            PlayerInfo.winsCounterBJ++;
+                            PlayerInfo.reward = (int)(PlayerInfo.bet * 2.5);
+                            score = "Победа!";
                         } else if (enemyScore == 21) {
-                            PlayerInfo.enemyWins++;
-                            score = "Поражение. " + PlayerInfo.myWins + ":" + PlayerInfo.enemyWins;
+                            PlayerInfo.reward = 0;
+                            score = "Поражение.";
                         } else if (myScore > 21) {
-                            PlayerInfo.enemyWins++;
-                            score = "Поражение. " + PlayerInfo.myWins + ":" + PlayerInfo.enemyWins;
+                            PlayerInfo.reward = 0;
+                            score = "Поражение.";
                         } else if (enemyScore > 21) {
-                            PlayerInfo.myWins++;
-                            score = "Победа! " + PlayerInfo.myWins + ":" + PlayerInfo.enemyWins;
+                            PlayerInfo.winsCounterBJ++;
+                            PlayerInfo.reward = PlayerInfo.bet * 2;
+                            score = "Победа!";
                         }
                     }
+
+                    PlayerInfo.gamesCounterBJ++;
+                    PlayerInfo.money += PlayerInfo.reward;
+                    PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
                     Intent intent = new Intent();
                     intent.putExtra("score", score);
                     setResult(1, intent);
@@ -375,14 +383,20 @@ public class MainActivity extends AppCompatActivity {
     private void finishGame() {
         String score = "";
         if(myScore == enemyScore) {
-            score = "Ничья. " + PlayerInfo.myWins + ":" + PlayerInfo.enemyWins;
+            PlayerInfo.reward = PlayerInfo.bet;
+            score = "Ничья.";
         } else if(myScore > enemyScore) {
-            PlayerInfo.myWins++;
-            score = "Победа! " + PlayerInfo.myWins + ":" + PlayerInfo.enemyWins;
+            PlayerInfo.winsCounterBJ++;
+            PlayerInfo.reward = PlayerInfo.bet * 2;
+            score = "Победа!";
         } else if(myScore < enemyScore) {
-            PlayerInfo.enemyWins++;
-            score = "Поражение. " + PlayerInfo.myWins + ":" + PlayerInfo.enemyWins;
+            PlayerInfo.reward = 0;
+            score = "Поражение.";
         }
+
+        PlayerInfo.gamesCounterBJ++;
+        PlayerInfo.money += PlayerInfo.reward;
+        PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
         Intent intent = new Intent();
         intent.putExtra("score", score);
         setResult(1, intent);

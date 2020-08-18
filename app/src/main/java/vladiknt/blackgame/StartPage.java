@@ -23,6 +23,8 @@ public class StartPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.start_page);
+
+        PlayerInfo.loadInfo(getFileStreamPath(PlayerInfo.data));
     }
 
     // Кнопка входа в настройки

@@ -17,7 +17,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/buttons_style_a"
+            android:background="@drawable/buttons_style_ad"
             android:onClick="backButton"
             android:padding="8dp"
             android:src="@drawable/return_arrow" />
@@ -42,16 +42,71 @@
         android:layout_weight="1"
         android:scaleType="centerCrop"
         android:src="@drawable/start" />
+
     <TextView
         android:id="@+id/finish"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/buttons_hidden"
-        android:text="\\/"
+        android:text="Ваш баланс:"
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/bet5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="5  "
+            android:background="@drawable/buttons_hidden"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:onClick="betButton"/>
+
+        <RadioButton
+            android:id="@+id/bet10"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="10 "
+            android:background="@drawable/buttons_hidden"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:onClick="betButton"/>
+
+        <RadioButton
+            android:id="@+id/bet50"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="50 "
+            android:background="@drawable/buttons_hidden"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:onClick="betButton"/>
+
+        <RadioButton
+            android:id="@+id/bet100"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="100"
+            android:background="@drawable/buttons_hidden"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:onClick="betButton"/>
+
+    </RadioGroup>
 
     <TextView
         android:elevation="4dp"
