@@ -36,41 +36,95 @@
 
     </LinearLayout>
 
-    <ImageView
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scaleType="centerCrop"
-        android:src="@drawable/start"
-        android:onClick="menuButton" />
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/rounded_info_bottom"
-        android:padding="8dp"
-        android:text="Black Jack"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scaleType="centerCrop"
-        android:src="@drawable/start2"
-        android:onClick="menuRouletteButton" />
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginEnd="16dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_info_bottom"
-        android:padding="8dp"
-        android:text="Roulette"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/start" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/rounded_info_bottom"
+                    android:padding="8dp"
+                    android:text="Black Jack"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:onClick="menuButton"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginEnd="16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/start2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/rounded_info_bottom"
+                    android:padding="8dp"
+                    android:text="Roulette"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:onClick="menuRouletteButton"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/start3" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/rounded_info_bottom"
+                    android:padding="8dp"
+                    android:text="VNT-Slots"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:onClick="menuVNTButton"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
 </LinearLayout>

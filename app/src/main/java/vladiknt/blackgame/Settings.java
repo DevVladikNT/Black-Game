@@ -54,6 +54,10 @@ public class Settings extends AppCompatActivity {
                 PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
                 Toast.makeText(this, "Вам начислено 1000 монет на счёт.", Toast.LENGTH_SHORT).show();
                 break;
+            case "freePlay":
+                PlayerInfo.bet = 0;
+                Toast.makeText(this, "Теперь вы можете играть бесплатно.", Toast.LENGTH_SHORT).show();
+                break;
             default:
                 Toast.makeText(this, "Промокод недействителен.", Toast.LENGTH_SHORT).show();
         }

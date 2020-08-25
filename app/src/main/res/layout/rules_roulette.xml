@@ -1,0 +1,165 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:elevation="4dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/buttons_style_ad"
+            android:onClick="backButton"
+            android:padding="8dp"
+            android:src="@drawable/return_arrow" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/buttons_style_p"
+            android:text="Roulette"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_info_top"
+                android:padding="8dp"
+                android:text="В игре используется барабан,
+разделенный на 37 секторов, каждому из которых в соответствие
+поставлено число."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/roulette" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorPrimary"
+                android:padding="8dp"
+                android:text="Каждое число относится к одной или
+нескольким группам:
+\n      [0] - кнопка, соответствующая зеленому сектору 0, это
+единственная кнопка, которая позволяет делать ставку на данный
+сектор.
+\n      [кнопка с номером] - соответствует числу, которое изображено
+на соответствующей кнопке (1, 2, 3, ...).
+\n      [красная кнопка] - соответствует числам, изображенным на
+рулетке, фон которых красный.
+\n      [черная кнопка] - соответствует числам, изображенным на
+рулетке, фон которых черный.
+\n      [EVEN] - четные числа (но не 0).
+\n      [ODD] - нечетные числа.
+\n      [1-18] - соответсвует секторам с номерами от 1 до 18.
+\n      [19-36] - соответствует секторам с номерами от 19 до 36.
+\n      [1st 12] - соответствует секторам с номерами от 1 до 12.
+\n      [2nd 12] - соответствует секторам с номерами от 13 до 24.
+\n      [3rd 12] - соответствует секторам с номерами от 25 до 36.
+\n      [2 to 1] - соответствует секторам с номерами, расположенными
+слева от данной кнопки на поле выбора позиции (например верхняя
+кнопка 2 to 1 соответствует секторам с номерами 3, 6, 9, 12, ...)."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/rules_r_1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorPrimary"
+                android:padding="8dp"
+                android:text="После выбора позиции и нажатия на
+соответствующую кнопку, нажмите на кнопку 'Подтвердить ставку'."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/rules_r_2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_info_bottom"
+                android:padding="8dp"
+                android:text="Далее шар вращается по барабану и
+останавливается в одном из секторов, далее проверяется соответствие
+выпавшего сектора и выбраной позиции. После этого объявляется
+победа или поражение."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_info_top"
+                android:padding="8dp"
+                android:text="В случае поражения монеты на ваш
+счёт не возвращаются."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_info_bottom"
+                android:padding="8dp"
+                android:text="В случае победы вам возвращается
+ваша начальная ставка и дополнительное количество, зависящее от
+выбранной позиции:
+\n      [0] или [кнопка с номером] - x36.
+\n      [красная кнопка], [черная кнопка], [EVEN], [ODD], [1-18],
+[19-36] - x2.
+\n      [1st 12], [2nd 12], [3rd 12], [2 to 1] - x3."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -93,19 +93,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/rounded_info_bottom"
             android:onClick="devButton"
             android:text="О разработчике"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-
-        <TextView
-            android:elevation="2dp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/rounded_info_bottom"
-            android:text="Раздел будет расширен позже :)"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
@@ -136,13 +126,14 @@
 
             <EditText
                 android:id="@+id/giftCode"
-                android:text="Ввести..."
+                android:hint="Ввести..."
+                android:textColorHint="#DDDDDD"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:textSize="16sp"
-                android:textColor="#FFFFFF"/>
+                android:textSize="20sp"
+                android:textColor="#FFFFFF" />
 
             <ImageView
                 android:onClick="giftCodeButton"

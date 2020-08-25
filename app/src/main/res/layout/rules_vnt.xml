@@ -1,0 +1,327 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:elevation="4dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/buttons_style_ad"
+            android:onClick="backButton"
+            android:padding="8dp"
+            android:src="@drawable/return_arrow" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/buttons_style_p"
+            android:text="VNT-Slots"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_info_top"
+                android:padding="8dp"
+                android:text="В игре используются 3 барабана.
+У каждого 10 вариантов того, что может выпасть."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/slots0"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"
+                    android:text="Lose (x0), k = 0.5"
+                    android:gravity="center_vertical"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/slots1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"
+                    android:text="Block (x1), k = 0.8"
+                    android:gravity="center_vertical"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/slots2"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"
+                    android:text="Pass, k = 1.0"
+                    android:gravity="center_vertical"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/slots3"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"
+                    android:text="Good (x4), k = 1.2"
+                    android:gravity="center_vertical"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/slots4"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"
+                    android:text="Lucky (x8), k = 1.6"
+                    android:gravity="center_vertical"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/slots5"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"
+                    android:text="JackPot (x32), k = 1.9"
+                    android:gravity="center_vertical"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/slots6"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"
+                    android:text="Особый сектор первого барабана."
+                    android:gravity="center_vertical"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/slots7"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"
+                    android:text="Особый сектор второго барабана."
+                    android:gravity="center_vertical"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/slots8"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"
+                    android:text="Особый сектор третьего барабана."
+                    android:gravity="center_vertical"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorPrimary"
+                android:padding="8dp"
+                android:text="Если на барабанах собираются 3
+одинаковые картинки, то игрок получает свою ставку, умноженную на
+значение в скобках рядом с соответствующей картинкой выше."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_info_bottom"
+                android:padding="8dp"
+                android:text="Если картинки разные, то каждая из них
+заменяется на коэффициент k, затем коэффициенты перемножаются и
+результат умножается на начальную ставку - именно столько получит
+игрок."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_info_top"
+                android:padding="8dp"
+                android:text="Особое место занимают буквы V N и T
+на барабанах. Если собираются все три буквы, то игрок получает свою
+ставку назад, а также получает 5 бесплатных игр (начальной ставкой
+для выплат в таких играх считается ставка, во время которой игрок
+их получил)."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_info_bottom"
+                android:padding="8dp"
+                android:text="Если набралось 2 буквы (в любом
+порядке), то игрок получает 1 бонусную игру. У таких картинок k =
+1.0"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

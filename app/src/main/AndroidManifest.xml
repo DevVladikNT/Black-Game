@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Statistics"></activity>
-        <activity android:name=".Menu" />
+        <activity android:name=".RulesVNT"></activity>
+        <activity android:name=".RulesRoulette" />
+        <activity android:name=".RulesBJ" />
+        <activity android:name=".MenuVNT" />
+        <activity android:name=".MainActivityVNT" />
+        <activity android:name=".Statistics" />
+        <activity android:name=".MenuBJ" />
         <activity android:name=".Themes" />
         <activity android:name=".Settings" />
         <activity android:name=".Rules" />
@@ -25,7 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivityBJ" />
     </application>
 
 </manifest>

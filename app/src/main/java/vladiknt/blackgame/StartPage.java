@@ -34,12 +34,17 @@ public class StartPage extends AppCompatActivity {
     }
     // Кнопка входа в меню блекджека
     public void menuButton(View view) {
-        Intent intent = new Intent(StartPage.this, Menu.class);
+        Intent intent = new Intent(StartPage.this, MenuBJ.class);
         startActivity(intent);
     }
     // Кнопка входа в меню рулетки
     public void menuRouletteButton(View view) {
         Intent intent = new Intent(StartPage.this, MenuRoulette.class);
+        startActivity(intent);
+    }
+    // Кнопка входа в меню слотов
+    public void menuVNTButton(View view) {
+        Intent intent = new Intent(StartPage.this, MenuVNT.class);
         startActivity(intent);
     }
 

@@ -10,12 +10,12 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Menu extends AppCompatActivity {
+public class MenuBJ extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu);
+        setContentView(R.layout.menu_bj);
         TextView tv = findViewById(R.id.finish);
         tv.clearComposingText();
         tv.setText("Ваш баланс: " + PlayerInfo.money);
@@ -46,7 +46,7 @@ public class Menu extends AppCompatActivity {
         if (PlayerInfo.money - PlayerInfo.bet >= 0) {
             PlayerInfo.money -= PlayerInfo.bet;
             PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
-            Intent intent = new Intent(Menu.this, MainActivity.class);
+            Intent intent = new Intent(MenuBJ.this, MainActivityBJ.class);
             startActivityForResult(intent, 1);
         } else
             Toast.makeText(this, "Недостаточно монет.", Toast.LENGTH_SHORT).show();

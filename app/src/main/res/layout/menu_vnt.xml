@@ -26,45 +26,71 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/buttons_style_p"
-            android:text="Правила игры"
+            android:text="VNT-Slots"
             android:gravity="center"
             android:textColor="#FFFFFF"
+            android:textColorLink="#FFFFFF"
             android:textSize="20sp" />
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/startImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/start3" />
+
     <TextView
-        android:elevation="2dp"
+        android:id="@+id/finish"
+        android:layout_marginBottom="8dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/rounded_info_top"
-        android:onClick="rulesBJButton"
-        android:text="Black Jack"
+        android:background="@drawable/buttons_hidden"
+        android:text="Ваш баланс:"
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
-    <TextView
-        android:elevation="2dp"
+    <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimary"
-        android:onClick="rulesRButton"
-        android:text="Roulette"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/bet10"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="10 "
+            android:background="@drawable/buttons_hidden"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:onClick="betButton"/>
+
+        <RadioButton
+            android:id="@+id/bet100"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="100"
+            android:background="@drawable/buttons_hidden"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:onClick="betButton"/>
+
+    </RadioGroup>
 
     <TextView
-        android:elevation="2dp"
+        android:elevation="4dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/rounded_info_bottom"
-        android:onClick="rulesVNTButton"
-        android:text="VNT-Slots"
+        android:background="@drawable/buttons_style_p"
+        android:onClick="newGame"
+        android:text="Start new game"
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />

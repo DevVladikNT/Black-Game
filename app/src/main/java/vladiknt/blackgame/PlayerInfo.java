@@ -21,7 +21,7 @@ public class PlayerInfo {
     static boolean secretSex = false; // Картинки 18+
     static int counter = 0; // Сколько раз нажали на мою картинку
 
-    static int bet = 0; // Текущая ставка
+    static int bet = 10; // Текущая ставка
     static int reward = 0; // Размер выплаты после игры в случае победы
 
     // Методы загрузки/записи данных об игроке

@@ -14,12 +14,12 @@ import android.widget.TextView;
 import vladiknt.blackgame.blackjack.Deck;
 import vladiknt.blackgame.blackjack.Node;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityBJ extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_bj);
         ImageView iv = findViewById(R.id.drawCard);
         iv.setClickable(false);
         Button btn = findViewById(R.id.stopDraw);
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Кнопка помощи во время игры
     public void helpButton(View view) {
-        Intent intent = new Intent(MainActivity.this, Rules.class);
+        Intent intent = new Intent(MainActivityBJ.this, RulesBJ.class);
         startActivity(intent);
     }
 
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     private Node ecard; // Первая карта противника
 
     private int PAUSE = 3000; // Задержка чтобы успеть посмотреть карты противника
-    private String enemyImage; // Картинка противника для загрузки при выходе из меню помощи
 
     public void newGame() {
         myScore = 0;
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "Anime":
                 if (PlayerInfo.secretSex)
-                    str = "drawable/anime18_" + ((int)(Math.random()*100000)%21 + 1);
+                    str = "drawable/anime18_" + ((int)(Math.random()*100000)%22 + 1);
                 else if (PlayerInfo.secret)
                     str = "drawable/anime_" + ((int)(Math.random()*100000)%14 + 1);
                 else
@@ -81,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "Girls":
                 if (PlayerInfo.secretSex)
-                    str = "drawable/girl18_" + ((int)(Math.random()*100000)%11 + 1);
+                    str = "drawable/girl18_" + ((int)(Math.random()*100000)%24 + 1);
                 else if (PlayerInfo.secret)
-                    str = "drawable/girl_" + ((int)(Math.random()*100000)%19 + 1);
+                    str = "drawable/girl_" + ((int)(Math.random()*100000)%32 + 1);
                 else
                     str = "drawable/girl" + ((int)(Math.random()*100000)%21 + 1);
                 break;
@@ -96,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                     str = "drawable/bw" + ((int)(Math.random()*100000)%10 + 1);
                 break;
         }
-        enemyImage = str; // Запомнили аватарку противника
         image.setImageResource(getApplicationContext().getResources().getIdentifier(str, null, getApplicationContext().getPackageName()));
 
         Handler handler = new Handler();
