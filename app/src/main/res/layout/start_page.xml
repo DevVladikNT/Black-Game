@@ -13,11 +13,11 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:elevation="4dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/buttons_style_ad"
+            android:elevation="4dp"
             android:onClick="settingsButton"
             android:padding="8dp"
             android:src="@drawable/menu_bars" />
@@ -25,7 +25,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:autoLink="web"
             android:background="@drawable/buttons_style_p"
             android:padding="10dp"
             android:text="Black Game"
@@ -36,95 +35,285 @@
 
     </LinearLayout>
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/buttons_hidden"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginEnd="16dp">
+            <ImageView
+                android:id="@+id/map00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dark_wall" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/start" />
+            <ImageView
+                android:id="@+id/map01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wall" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/rounded_info_bottom"
-                    android:padding="8dp"
-                    android:text="Black Jack"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:onClick="menuButton"/>
+            <ImageView
+                android:id="@+id/map02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
 
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/map03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
 
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginEnd="16dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/start2" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/rounded_info_bottom"
-                    android:padding="8dp"
-                    android:text="Roulette"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:onClick="menuRouletteButton"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/start3" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/rounded_info_bottom"
-                    android:padding="8dp"
-                    android:text="VNT-Slots"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:onClick="menuVNTButton"/>
-
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/map04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
 
         </LinearLayout>
 
-    </HorizontalScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/map10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dark_wall" />
+
+            <ImageView
+                android:id="@+id/map11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wall" />
+
+            <ImageView
+                android:id="@+id/map12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
+
+            <ImageView
+                android:id="@+id/map13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
+
+            <ImageView
+                android:id="@+id/map14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/map20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dark_wall" />
+
+            <ImageView
+                android:id="@+id/map21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/door" />
+
+            <ImageView
+                android:id="@+id/map22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/me" />
+
+            <ImageView
+                android:id="@+id/map23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
+
+            <ImageView
+                android:id="@+id/map24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wall" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/map30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dark_wall" />
+
+            <ImageView
+                android:id="@+id/map31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wall" />
+
+            <ImageView
+                android:id="@+id/map32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
+
+            <ImageView
+                android:id="@+id/map33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
+
+            <ImageView
+                android:id="@+id/map34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/map40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dark_wall" />
+
+            <ImageView
+                android:id="@+id/map41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wall" />
+
+            <ImageView
+                android:id="@+id/map42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
+
+            <ImageView
+                android:id="@+id/map43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
+
+            <ImageView
+                android:id="@+id/map44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/floor" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/balance"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:autoLink="web"
+        android:background="@drawable/buttons_style_p"
+        android:padding="10dp"
+        android:text="Money: 1100"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/buttons_style_p"
+                android:elevation="4dp"
+                android:onClick="upButton" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/buttons_style_p"
+                android:elevation="4dp"
+                android:onClick="leftButton" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/buttons_style_p"
+                android:elevation="4dp"
+                android:onClick="rightButton" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/buttons_style_p"
+                android:elevation="4dp"
+                android:onClick="downButton" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

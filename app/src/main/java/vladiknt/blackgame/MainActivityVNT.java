@@ -37,8 +37,7 @@ public class MainActivityVNT extends AppCompatActivity {
         final ImageView iv31 = findViewById(R.id.slots3_1);
         final ImageView iv32 = findViewById(R.id.slots3_2);
         final ImageView iv33 = findViewById(R.id.slots3_3);
-        Button btn = findViewById(R.id.VNTButton);
-        btn.setClickable(false);
+        findViewById(R.id.VNTButton).setClickable(false);
 
         final int firstRand = (int)(Math.random() * 1000) % 10;
         final int secondRand = (int)(Math.random() * 1000) % 10;
@@ -155,6 +154,7 @@ public class MainActivityVNT extends AppCompatActivity {
                     result += bonus;
                     Toast.makeText(MainActivityVNT.this, result, Toast.LENGTH_SHORT).show();
                     bonus--;
+                    findViewById(R.id.VNTButton).setClickable(true);
                 } else {
                     Intent intent = new Intent();
                     intent.putExtra("result", result);
