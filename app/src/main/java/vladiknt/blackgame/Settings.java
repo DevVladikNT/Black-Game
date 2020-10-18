@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import vladiknt.blackgame.maps.Map;
+
 public class Settings extends AppCompatActivity {
 
     @Override
@@ -57,6 +59,10 @@ public class Settings extends AppCompatActivity {
             case "freePlay":
                 PlayerInfo.bet = 0;
                 Toast.makeText(this, "Теперь вы можете играть бесплатно.", Toast.LENGTH_SHORT).show();
+                break;
+            case "hentaiRoom":
+                StartPage.setMap(new Map(4));
+                Toast.makeText(this, "Вы перемещены в хентай-комнату.", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 Toast.makeText(this, "Промокод недействителен.", Toast.LENGTH_SHORT).show();

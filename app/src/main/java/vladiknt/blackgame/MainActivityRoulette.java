@@ -739,31 +739,31 @@ public class MainActivityRoulette extends AppCompatActivity {
         if (result.equals("Победа!")) {
             PlayerInfo.winsCounterR++;
             if (isNumber)
-                PlayerInfo.reward = PlayerInfo.bet * 37; // Возвращается ставка и 36 * начальную ставку как выигрыш
+                PlayerInfo.reward = PlayerInfo.bet * 36; // 36 * начальную ставку как выигрыш, начальная ставка не возвращается
             else if (red)
-                PlayerInfo.reward = PlayerInfo.bet * 3;
+                PlayerInfo.reward = PlayerInfo.bet * 2;
             else if (black)
-                PlayerInfo.reward = PlayerInfo.bet * 3;
+                PlayerInfo.reward = PlayerInfo.bet * 2;
             else if (odd)
-                PlayerInfo.reward = PlayerInfo.bet * 3;
+                PlayerInfo.reward = PlayerInfo.bet * 2;
             else if (even)
-                PlayerInfo.reward = PlayerInfo.bet * 3;
+                PlayerInfo.reward = PlayerInfo.bet * 2;
             else if (n1st12)
-                PlayerInfo.reward = PlayerInfo.bet * 4;
+                PlayerInfo.reward = PlayerInfo.bet * 3;
             else if (n2nd12)
-                PlayerInfo.reward = PlayerInfo.bet * 4;
+                PlayerInfo.reward = PlayerInfo.bet * 3;
             else if (n3rd12)
-                PlayerInfo.reward = PlayerInfo.bet * 4;
+                PlayerInfo.reward = PlayerInfo.bet * 3;
             else if (n118)
-                PlayerInfo.reward = PlayerInfo.bet * 3;
+                PlayerInfo.reward = PlayerInfo.bet * 2;
             else if (n1936)
-                PlayerInfo.reward = PlayerInfo.bet * 3;
+                PlayerInfo.reward = PlayerInfo.bet * 2;
             else if (n121)
-                PlayerInfo.reward = PlayerInfo.bet * 4;
+                PlayerInfo.reward = PlayerInfo.bet * 3;
             else if (n221)
-                PlayerInfo.reward = PlayerInfo.bet * 4;
+                PlayerInfo.reward = PlayerInfo.bet * 3;
             else if (n321)
-                PlayerInfo.reward = PlayerInfo.bet * 4;
+                PlayerInfo.reward = PlayerInfo.bet * 3;
         } else
             PlayerInfo.reward = 0;
 

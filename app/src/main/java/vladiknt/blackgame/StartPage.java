@@ -20,8 +20,10 @@ import vladiknt.blackgame.maps.Map;
  */
 
 public class StartPage extends AppCompatActivity {
-
-    private Map map = new Map(1);
+    private static Map map = new Map(1);
+    public static void setMap(Map newMap) {
+        map = newMap;
+    }
     private ImageView[][] renderMap = new ImageView[5][5];
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -79,6 +81,18 @@ public class StartPage extends AppCompatActivity {
             case "BJ":
                 menuBJ();
                 break;
+            case "door1":
+                map = new Map(1);
+                break;
+            case "door2":
+                //
+                break;
+            case "door3":
+                map = new Map(3);
+                break;
+            case "door4":
+                map = new Map(4);
+                break;
         }
         TextView tv = findViewById(R.id.balance);
         tv.setText("Money: " + PlayerInfo.money);
@@ -95,6 +109,18 @@ public class StartPage extends AppCompatActivity {
                 break;
             case "BJ":
                 menuBJ();
+                break;
+            case "door1":
+                map = new Map(1);
+                break;
+            case "door2":
+                //
+                break;
+            case "door3":
+                map = new Map(3);
+                break;
+            case "door4":
+                map = new Map(4);
                 break;
         }
         TextView tv = findViewById(R.id.balance);
@@ -113,6 +139,18 @@ public class StartPage extends AppCompatActivity {
             case "BJ":
                 menuBJ();
                 break;
+            case "door1":
+                map = new Map(1);
+                break;
+            case "door2":
+                //
+                break;
+            case "door3":
+                map = new Map(3);
+                break;
+            case "door4":
+                map = new Map(4);
+                break;
         }
         TextView tv = findViewById(R.id.balance);
         tv.setText("Money: " + PlayerInfo.money);
@@ -129,6 +167,18 @@ public class StartPage extends AppCompatActivity {
                 break;
             case "BJ":
                 menuBJ();
+                break;
+            case "door1":
+                map = new Map(1);
+                break;
+            case "door2":
+                //
+                break;
+            case "door3":
+                map = new Map(3);
+                break;
+            case "door4":
+                map = new Map(4);
                 break;
         }
         TextView tv = findViewById(R.id.balance);
