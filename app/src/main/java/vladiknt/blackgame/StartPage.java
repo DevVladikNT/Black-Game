@@ -25,6 +25,7 @@ public class StartPage extends AppCompatActivity {
         map = newMap;
     }
     private ImageView[][] renderMap = new ImageView[5][5];
+    private Intent intent; // Для запуска режимов игры
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -73,13 +74,20 @@ public class StartPage extends AppCompatActivity {
     public void upButton(View view) {
         switch (map.moveUp()) {
             case "VNT":
-                menuVNT();
+                intent = new Intent(StartPage.this, MenuVNT.class);
+                startActivity(intent);
                 break;
             case "R":
-                menuRoulette();
+                intent = new Intent(StartPage.this, MenuRoulette.class);
+                startActivity(intent);
                 break;
             case "BJ":
-                menuBJ();
+                intent = new Intent(StartPage.this, MenuBJ.class);
+                startActivity(intent);
+                break;
+            case "h_BJ":
+                intent = new Intent(StartPage.this, MenuBJ_h.class);
+                startActivity(intent);
                 break;
             case "door1":
                 map = new Map(1);
@@ -102,13 +110,20 @@ public class StartPage extends AppCompatActivity {
     public void downButton(View view) {
         switch (map.moveDown()) {
             case "VNT":
-                menuVNT();
+                intent = new Intent(StartPage.this, MenuVNT.class);
+                startActivity(intent);
                 break;
             case "R":
-                menuRoulette();
+                intent = new Intent(StartPage.this, MenuRoulette.class);
+                startActivity(intent);
                 break;
             case "BJ":
-                menuBJ();
+                intent = new Intent(StartPage.this, MenuBJ.class);
+                startActivity(intent);
+                break;
+            case "h_BJ":
+                intent = new Intent(StartPage.this, MenuBJ_h.class);
+                startActivity(intent);
                 break;
             case "door1":
                 map = new Map(1);
@@ -131,13 +146,20 @@ public class StartPage extends AppCompatActivity {
     public void rightButton(View view) {
         switch (map.moveRight()) {
             case "VNT":
-                menuVNT();
+                intent = new Intent(StartPage.this, MenuVNT.class);
+                startActivity(intent);
                 break;
             case "R":
-                menuRoulette();
+                intent = new Intent(StartPage.this, MenuRoulette.class);
+                startActivity(intent);
                 break;
             case "BJ":
-                menuBJ();
+                intent = new Intent(StartPage.this, MenuBJ.class);
+                startActivity(intent);
+                break;
+            case "h_BJ":
+                intent = new Intent(StartPage.this, MenuBJ_h.class);
+                startActivity(intent);
                 break;
             case "door1":
                 map = new Map(1);
@@ -160,13 +182,20 @@ public class StartPage extends AppCompatActivity {
     public void leftButton(View view) {
         switch (map.moveLeft()) {
             case "VNT":
-                menuVNT();
+                intent = new Intent(StartPage.this, MenuVNT.class);
+                startActivity(intent);
                 break;
             case "R":
-                menuRoulette();
+                intent = new Intent(StartPage.this, MenuRoulette.class);
+                startActivity(intent);
                 break;
             case "BJ":
-                menuBJ();
+                intent = new Intent(StartPage.this, MenuBJ.class);
+                startActivity(intent);
+                break;
+            case "h_BJ":
+                intent = new Intent(StartPage.this, MenuBJ_h.class);
+                startActivity(intent);
                 break;
             case "door1":
                 map = new Map(1);
@@ -184,22 +213,6 @@ public class StartPage extends AppCompatActivity {
         TextView tv = findViewById(R.id.balance);
         tv.setText("Money: " + PlayerInfo.money);
         map.render(renderMap, getApplicationContext());
-    }
-
-    // Вход в меню блекджека
-    public void menuBJ() {
-        Intent intent = new Intent(StartPage.this, MenuBJ.class);
-        startActivity(intent);
-    }
-    // Вход в меню рулетки
-    public void menuRoulette() {
-        Intent intent = new Intent(StartPage.this, MenuRoulette.class);
-        startActivity(intent);
-    }
-    // Вход в меню слотов
-    public void menuVNT() {
-        Intent intent = new Intent(StartPage.this, MenuVNT.class);
-        startActivity(intent);
     }
 
     // Системная кнопка назад

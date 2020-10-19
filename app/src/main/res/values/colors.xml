@@ -3,4 +3,7 @@
     <color name="colorPrimary">#0288D1</color>
     <color name="colorPrimaryDark">#01579B</color>
     <color name="colorAccent">#C6FF00</color>
+    <color name="hentaiPrimary">#D94DC0</color>
+    <color name="hentaiPrimaryDark">#350B68</color>
+    <color name="hentaiAccent">#FFFFFF</color>
 </resources>

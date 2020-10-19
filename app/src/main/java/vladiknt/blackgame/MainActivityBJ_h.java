@@ -14,12 +14,12 @@ import android.widget.TextView;
 import vladiknt.blackgame.blackjack.Deck;
 import vladiknt.blackgame.blackjack.Node;
 
-public class MainActivityBJ extends AppCompatActivity {
+public class MainActivityBJ_h extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_bj);
+        setContentView(R.layout.activity_main_bj_h);
         ImageView iv = findViewById(R.id.drawCard);
         iv.setClickable(false);
         Button btn = findViewById(R.id.stopDraw);
@@ -29,7 +29,7 @@ public class MainActivityBJ extends AppCompatActivity {
 
     // Кнопка помощи во время игры
     public void helpButton(View view) {
-        Intent intent = new Intent(MainActivityBJ.this, RulesBJ.class);
+        Intent intent = new Intent(MainActivityBJ_h.this, RulesBJ.class);
         startActivity(intent);
     }
 
@@ -52,43 +52,9 @@ public class MainActivityBJ extends AppCompatActivity {
         card2 = null;
         ecard = null;
 
-        // Установка аватарки противника
+        // Установка аватарки противника (всегда хентай)
         ImageView image = findViewById(R.id.enemyImage);
-        String str = "";
-        switch (PlayerInfo.theme) {
-            case "Standart":
-                str = "drawable/standart" + ((int)(Math.random()*100000)%7 + 1);
-                break;
-            case "Anime":
-                if (PlayerInfo.secret)
-                    str = "drawable/anime_" + ((int)(Math.random()*100000)%14 + 1);
-                else
-                    str = "drawable/anime" + ((int)(Math.random()*100000)%9 + 1);
-                break;
-            case "Asians":
-                if (PlayerInfo.secretSex)
-                    str = "drawable/asian18_" + ((int)(Math.random()*100000)%27 + 1);
-                else if (PlayerInfo.secret)
-                    str = "drawable/asian_" + ((int)(Math.random()*100000)%40 + 1);
-                else
-                    str = "drawable/asian" + ((int)(Math.random()*100000)%32 + 1);
-                break;
-            case "Boys":
-                str = "drawable/boy" + ((int)(Math.random()*100000)%10 + 1);
-                break;
-            case "Girls":
-                if (PlayerInfo.secret)
-                    str = "drawable/girl_" + ((int)(Math.random()*100000)%32 + 1);
-                else
-                    str = "drawable/girl" + ((int)(Math.random()*100000)%21 + 1);
-                break;
-            case "BW":
-                if (PlayerInfo.secret)
-                    str = "drawable/bw_" + ((int)(Math.random()*100000)%15 + 1);
-                else
-                    str = "drawable/bw" + ((int)(Math.random()*100000)%10 + 1);
-                break;
-        }
+        String str = "drawable/anime18_" + ((int)(Math.random()*100000)%22 + 1);
         image.setImageResource(getApplicationContext().getResources().getIdentifier(str, null, getApplicationContext().getPackageName()));
 
         Handler handler = new Handler();

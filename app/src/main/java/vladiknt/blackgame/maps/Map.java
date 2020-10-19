@@ -8,6 +8,7 @@ public class Map {
     private MapObject[][] map; // Карта
     private int[] position; // Позиция нашего персонажа
     private MapObject buff = new MapObject("floor"); // Буффер элемента под персонажем, чтобы он не "перемешивал" поле
+    private int id;
 
     // Функция отрисовки участка карты в интерфейсе
     public void render(ImageView[][] renderMap, Context context) {
@@ -26,6 +27,8 @@ public class Map {
                 return "R";
             case "table_bj":
                 return "BJ";
+            case "h_table_bj":
+                return "h_BJ";
             case "door":
                 return "door" + map[position[0] - 1][position[1]].getDoorId();
         }
@@ -33,6 +36,9 @@ public class Map {
             MapObject buff = map[position[0] - 1][position[1]];
             map[position[0] - 1][position[1]] = map[position[0]][position[1]];
             map[position[0]][position[1]] = this.buff;
+            // Если лабиринт, то пройденные клеточки заменяются на стены
+            if (id == 3)
+                map[position[0]][position[1]] = new MapObject("wall");
             this.buff = buff;
             position[0]--;
         }
@@ -46,6 +52,8 @@ public class Map {
                 return "R";
             case "table_bj":
                 return "BJ";
+            case "h_table_bj":
+                return "h_BJ";
             case "door":
                 return "door" + map[position[0] + 1][position[1]].getDoorId();
         }
@@ -53,6 +61,9 @@ public class Map {
             MapObject buff = map[position[0] + 1][position[1]];
             map[position[0] + 1][position[1]] = map[position[0]][position[1]];
             map[position[0]][position[1]] = this.buff;
+            // Если лабиринт, то пройденные клеточки заменяются на стены
+            if (id == 3)
+                map[position[0]][position[1]] = new MapObject("wall");
             this.buff = buff;
             position[0]++;
         }
@@ -66,6 +77,8 @@ public class Map {
                 return "R";
             case "table_bj":
                 return "BJ";
+            case "h_table_bj":
+                return "h_BJ";
             case "door":
                 return "door" + map[position[0]][position[1] + 1].getDoorId();
         }
@@ -73,6 +86,9 @@ public class Map {
             MapObject buff = map[position[0]][position[1] + 1];
             map[position[0]][position[1] + 1] = map[position[0]][position[1]];
             map[position[0]][position[1]] = this.buff;
+            // Если лабиринт, то пройденные клеточки заменяются на стены
+            if (id == 3)
+                map[position[0]][position[1]] = new MapObject("wall");
             this.buff = buff;
             position[1]++;
         }
@@ -86,6 +102,8 @@ public class Map {
                 return "R";
             case "table_bj":
                 return "BJ";
+            case "h_table_bj":
+                return "h_BJ";
             case "door":
                 return "door" + map[position[0]][position[1] - 1].getDoorId();
         }
@@ -93,6 +111,9 @@ public class Map {
             MapObject buff = map[position[0]][position[1] - 1];
             map[position[0]][position[1] - 1] = map[position[0]][position[1]];
             map[position[0]][position[1]] = this.buff;
+            // Если лабиринт, то пройденные клеточки заменяются на стены
+            if (id == 3)
+                map[position[0]][position[1]] = new MapObject("wall");
             this.buff = buff;
             position[1]--;
         }
@@ -104,6 +125,7 @@ public class Map {
 
     // Конструктор заранее сохраненных карт по номеру карты
     public Map(int id) {
+        this.id = id;
         switch (id) {
             case 1:
                 // Стартовая комната
@@ -135,7 +157,7 @@ public class Map {
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 6
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
-                                new MapObject("floor"), new MapObject("floor"), new MapObject("slots"),
+                                new MapObject("floor"), new MapObject("boys1"), new MapObject("slots"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("door"), new MapObject("me"), // 7
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("floor"),
@@ -146,7 +168,7 @@ public class Map {
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("slots"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 9
-                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("girls2"), new MapObject("floor"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 10
@@ -381,11 +403,11 @@ public class Map {
                                 new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("h_wall"), new MapObject("h_dark_wall")},
                         {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("floor", "h_floor"), // 3
-                                new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"), new MapObject("h_wall"),
+                                new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("h_wall"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("h_wall"), new MapObject("h_dark_wall")},
                         {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("h_girl1"), // 4
-                                new MapObject("h_wall"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
+                                new MapObject("h_table_bj"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("h_wall"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("h_wall"), new MapObject("h_dark_wall")},
                         {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("floor", "h_floor"), // 5

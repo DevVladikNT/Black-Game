@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hentaiPrimaryDark"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:elevation="4dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/buttons_style_hentai_accent"
+            android:onClick="backButton"
+            android:padding="8dp"
+            android:src="@drawable/return_arrow" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/buttons_style_hentai"
+            android:text="Black Jack"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/startImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/anime18_5" />
+
+    <TextView
+        android:id="@+id/finish"
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/buttons_hidden_hentai"
+        android:text="Ваш баланс:"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/bet5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="5  "
+            android:background="@drawable/buttons_hidden_hentai"
+            android:buttonTint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:onClick="betButton"/>
+
+        <RadioButton
+            android:id="@+id/bet10"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="10 "
+            android:background="@drawable/buttons_hidden_hentai"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:onClick="betButton"/>
+
+        <RadioButton
+            android:id="@+id/bet50"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="50 "
+            android:background="@drawable/buttons_hidden_hentai"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:onClick="betButton"/>
+
+        <RadioButton
+            android:id="@+id/bet100"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="100"
+            android:background="@drawable/buttons_hidden_hentai"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:onClick="betButton"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:elevation="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/buttons_style_hentai"
+        android:onClick="newGame"
+        android:text="Start new game"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+</LinearLayout>
