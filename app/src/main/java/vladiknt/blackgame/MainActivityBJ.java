@@ -61,9 +61,9 @@ public class MainActivityBJ extends AppCompatActivity {
                 break;
             case "Anime":
                 if (PlayerInfo.secret)
-                    str = "drawable/anime_" + ((int)(Math.random()*100000)%14 + 1);
+                    str = "drawable/anime_" + ((int)(Math.random()*100000)%30 + 1);
                 else
-                    str = "drawable/anime" + ((int)(Math.random()*100000)%9 + 1);
+                    str = "drawable/anime" + ((int)(Math.random()*100000)%11 + 1);
                 break;
             case "Asians":
                 if (PlayerInfo.secretSex)

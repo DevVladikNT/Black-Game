@@ -54,7 +54,7 @@ public class MainActivityBJ_h extends AppCompatActivity {
 
         // Установка аватарки противника (всегда хентай)
         ImageView image = findViewById(R.id.enemyImage);
-        String str = "drawable/anime18_" + ((int)(Math.random()*100000)%22 + 1);
+        String str = "drawable/anime18_" + ((int)(Math.random()*100000)%35 + 1);
         image.setImageResource(getApplicationContext().getResources().getIdentifier(str, null, getApplicationContext().getPackageName()));
 
         Handler handler = new Handler();

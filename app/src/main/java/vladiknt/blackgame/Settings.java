@@ -64,6 +64,15 @@ public class Settings extends AppCompatActivity {
                 StartPage.setMap(new Map(4));
                 Toast.makeText(this, "Вы перемещены в хентай-комнату.", Toast.LENGTH_SHORT).show();
                 break;
+            case "getHentaiGirl":
+                if (PlayerInfo.secret) {
+                    PlayerInfo.avatar = "secret_girl";
+                    PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
+                    StartPage.map.renderAvatar();
+                    Toast.makeText(this, "Теперь можно дрочить.", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(this, "Сначала отдай дань уважения разработчику.", Toast.LENGTH_SHORT).show();
+                break;
             default:
                 Toast.makeText(this, "Промокод недействителен.", Toast.LENGTH_SHORT).show();
         }

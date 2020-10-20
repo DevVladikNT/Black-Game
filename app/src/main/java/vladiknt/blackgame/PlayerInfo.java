@@ -9,6 +9,10 @@ import java.io.FileWriter;
 public class PlayerInfo {
 
     // Данные об игроке
+    private static String version; // В какой последней обнове изменяли структуру файла
+    private static String lastVersion = "0.6.3"; // Последняя обнова, в которой было изменение структуры файла с данными
+    public static String avatar; // Аватар игрока
+    public static String lastAvatar = ""; // Для хентай комнаты
     static int money; // Баланс игрока
     static int winsCounterBJ; // Кол-во побед в Black Jack
     static int gamesCounterBJ; // Кол-во игр в Black Jack
@@ -28,6 +32,9 @@ public class PlayerInfo {
     static final String data = "data.txt";
     static void loadInfo(File file) {
         if (!file.exists()) {
+            // Если файла не было
+            version = lastVersion;
+            avatar = "me";
             money = 1000;
             winsCounterBJ = 0;
             gamesCounterBJ = 0;
@@ -45,34 +52,64 @@ public class PlayerInfo {
                     else {
                         switch (i) {
                             case 0:
-                                money = Integer.parseInt(buff);
+                                version = buff;
                                 break;
                             case 1:
-                                winsCounterBJ = Integer.parseInt(buff);
+                                avatar = buff;
                                 break;
                             case 2:
-                                gamesCounterBJ = Integer.parseInt(buff);
+                                money = Integer.parseInt(buff);
                                 break;
                             case 3:
-                                winsCounterR = Integer.parseInt(buff);
+                                winsCounterBJ = Integer.parseInt(buff);
                                 break;
                             case 4:
-                                gamesCounterR = Integer.parseInt(buff);
+                                gamesCounterBJ = Integer.parseInt(buff);
                                 break;
                             case 5:
+                                winsCounterR = Integer.parseInt(buff);
+                                break;
+                            case 6:
+                                gamesCounterR = Integer.parseInt(buff);
+                                break;
+                            case 7:
                                 theme = buff;
+                                break;
                         }
                     }
                     i++;
                 }
+                if (!version.equals(lastVersion)) {
+                    // Если структура файла изменилась в обновлении
+                    version = lastVersion;
+                    avatar = "me";
+                    money = 1000;
+                    winsCounterBJ = 0;
+                    gamesCounterBJ = 0;
+                    winsCounterR = 0;
+                    gamesCounterR = 0;
+                    saveInfo(file);
+                }
             } catch (Exception e) {
-                //
+                // Если не удалось прочитать файл
+                version = lastVersion;
+                avatar = "me";
+                money = 1000;
+                winsCounterBJ = 0;
+                gamesCounterBJ = 0;
+                winsCounterR = 0;
+                gamesCounterR = 0;
+                saveInfo(file);
             }
         }
     }
     static void saveInfo(File file) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
-            bw.write("" + money);
+            bw.write(version);
+            bw.newLine();
+            bw.append(avatar);
+            bw.newLine();
+            bw.append("" + money);
             bw.newLine();
             bw.append("" + winsCounterBJ);
             bw.newLine();

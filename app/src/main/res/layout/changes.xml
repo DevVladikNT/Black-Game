@@ -44,7 +44,7 @@
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_info_top"
-            android:text="Black Game v0.6.2"
+            android:text="Black Game v0.6.3"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
@@ -55,8 +55,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Изменена секретная комната. Усложнено
-прохождение лабиринта."
+            android:text="Секретная комната спрятана."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -66,7 +65,8 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Заменены спрайты для карт."
+            android:text="Добавлен инвентарь и возможность смены
+аватара."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 

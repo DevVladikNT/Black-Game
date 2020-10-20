@@ -6,21 +6,19 @@ public class MapObject {
     private String imgSrc; // Путь к картинке для отрисовки данного элемента в интерфейсе
     private String doorId; // Для дверей
 
+    // Конструктор по умолчанию, устанавливающий сразу и тип, и путь до картинки
     public MapObject(String type) {
         this.type = type;
         imgSrc = "drawable/" + type;
     }
+    // Конструктор для хентай-комнаты
     public MapObject(String type, String imgSrc) {
-        // Конструктор для хентай-комнаты
         this.type = type;
         this.imgSrc = "drawable/" + imgSrc;
     }
 
     public String getImgSrc() {
         return imgSrc;
-    }
-    public void setType(String type) {
-        this.type = type;
     }
     public String getType() {
         return type;

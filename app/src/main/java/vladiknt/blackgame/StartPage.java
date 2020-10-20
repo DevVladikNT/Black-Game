@@ -20,11 +20,11 @@ import vladiknt.blackgame.maps.Map;
  */
 
 public class StartPage extends AppCompatActivity {
-    private static Map map = new Map(1);
+    public static Map map;
     public static void setMap(Map newMap) {
         map = newMap;
     }
-    private ImageView[][] renderMap = new ImageView[5][5];
+    private ImageView[][] renderMap = new ImageView[5][5]; // Для рендера участка карты
     private Intent intent; // Для запуска режимов игры
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -59,10 +59,12 @@ public class StartPage extends AppCompatActivity {
         renderMap[4][2] = findViewById(R.id.map42);
         renderMap[4][3] = findViewById(R.id.map43);
         renderMap[4][4] = findViewById(R.id.map44);
-        map.render(renderMap, getApplicationContext());
         PlayerInfo.loadInfo(getFileStreamPath(PlayerInfo.data));
         TextView tv = findViewById(R.id.balance);
         tv.setText("Money: " + PlayerInfo.money);
+        // Рендерим карту
+        map = new Map(1);
+        map.render(renderMap, getApplicationContext());
     }
 
     // Кнопка входа в настройки
@@ -70,6 +72,12 @@ public class StartPage extends AppCompatActivity {
         Intent intent = new Intent(StartPage.this, Settings.class);
         startActivity(intent);
     }
+    // Кнопка перехода в инвентарь
+    public void inventoryButton(View view) {
+        Intent intent = new Intent(StartPage.this, Inventory.class);
+        startActivity(intent);
+    }
+
     // Кнопка вверх
     public void upButton(View view) {
         switch (map.moveUp()) {
@@ -93,7 +101,7 @@ public class StartPage extends AppCompatActivity {
                 map = new Map(1);
                 break;
             case "door2":
-                //
+                map = new Map(2);
                 break;
             case "door3":
                 map = new Map(3);
@@ -129,7 +137,7 @@ public class StartPage extends AppCompatActivity {
                 map = new Map(1);
                 break;
             case "door2":
-                //
+                map = new Map(2);
                 break;
             case "door3":
                 map = new Map(3);
@@ -165,7 +173,7 @@ public class StartPage extends AppCompatActivity {
                 map = new Map(1);
                 break;
             case "door2":
-                //
+                map = new Map(2);
                 break;
             case "door3":
                 map = new Map(3);
@@ -201,7 +209,7 @@ public class StartPage extends AppCompatActivity {
                 map = new Map(1);
                 break;
             case "door2":
-                //
+                map = new Map(2);
                 break;
             case "door3":
                 map = new Map(3);
