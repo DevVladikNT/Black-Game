@@ -58,6 +58,7 @@ public class Settings extends AppCompatActivity {
                     Toast.makeText(this, "Вам начислено 100 монет на счёт.", Toast.LENGTH_SHORT).show();
                 } else
                     Toast.makeText(this, "У вас достаточно денег.", Toast.LENGTH_SHORT).show();
+                break;
             case "vladiknt20":
                 PlayerInfo.money += 1000;
                 PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
