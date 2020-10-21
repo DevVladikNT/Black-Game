@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import vladiknt.blackgame.maps.Map;
+
 public class Inventory extends AppCompatActivity {
 
     @Override
@@ -44,6 +46,11 @@ public class Inventory extends AppCompatActivity {
     // Кнопка выхода из активити
     public void backButton(View view) {
         finish();
+    }
+    // Кнопка возвращения в холл
+    public void returnButton(View view) {
+        StartPage.setMap(new Map(1));
+        Toast.makeText(this, "Вы перемещены в холл.", Toast.LENGTH_SHORT).show();
     }
 
 }

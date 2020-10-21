@@ -51,6 +51,13 @@ public class Settings extends AppCompatActivity {
     public void giftCodeButton(View view) {
         EditText et = findViewById(R.id.giftCode);
         switch (et.getText().toString()) {
+            case "MONEY2020":
+                if (PlayerInfo.money < 5) {
+                    PlayerInfo.money += 100;
+                    PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
+                    Toast.makeText(this, "Вам начислено 100 монет на счёт.", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(this, "У вас достаточно денег.", Toast.LENGTH_SHORT).show();
             case "vladiknt20":
                 PlayerInfo.money += 1000;
                 PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));

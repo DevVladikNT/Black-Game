@@ -44,7 +44,7 @@
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_info_top"
-            android:text="Black Game v0.6.3"
+            android:text="Black Game v0.6.4"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
@@ -55,7 +55,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Секретная комната спрятана."
+            android:text="Добавлены фразы персонажам."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -65,8 +65,19 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Добавлен инвентарь и возможность смены
-аватара."
+            android:text="Добавлена кнопка возвращения в холл
+(в инвентаре)."
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:text="Изменено начальное количество монет на 100.
+Добавлен промокод MONEY2020 на случай, если у игрока закончились деньги."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 

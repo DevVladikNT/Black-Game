@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/buttons_style_hentai"
-            android:text="Black Jack"
+            android:text="Hentai Room"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textColorLink="#FFFFFF"
@@ -61,10 +61,10 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/bet5"
+            android:id="@+id/hbet5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="5  "
+            android:text="5%  "
             android:background="@drawable/buttons_hidden_hentai"
             android:buttonTint="#FFFFFF"
             android:textColor="#FFFFFF"
@@ -73,23 +73,10 @@
             android:onClick="betButton"/>
 
         <RadioButton
-            android:id="@+id/bet10"
+            android:id="@+id/hbet10"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="10 "
-            android:background="@drawable/buttons_hidden_hentai"
-            android:textColor="#FFFFFF"
-            android:buttonTint="#FFFFFF"
-            android:layout_weight="1"
-            android:layout_marginEnd="4dp"
-            android:layout_marginStart="4dp"
-            android:onClick="betButton"/>
-
-        <RadioButton
-            android:id="@+id/bet50"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="50 "
+            android:text="10% "
             android:background="@drawable/buttons_hidden_hentai"
             android:textColor="#FFFFFF"
             android:buttonTint="#FFFFFF"
@@ -99,10 +86,23 @@
             android:onClick="betButton"/>
 
         <RadioButton
-            android:id="@+id/bet100"
+            android:id="@+id/hbet50"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="100"
+            android:text="50% "
+            android:background="@drawable/buttons_hidden_hentai"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:onClick="betButton"/>
+
+        <RadioButton
+            android:id="@+id/hbet100"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="100%"
             android:background="@drawable/buttons_hidden_hentai"
             android:textColor="#FFFFFF"
             android:buttonTint="#FFFFFF"

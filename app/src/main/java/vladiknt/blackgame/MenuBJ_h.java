@@ -21,21 +21,21 @@ public class MenuBJ_h extends AppCompatActivity {
         tv.setText("Ваш баланс: " + PlayerInfo.money);
 
         RadioButton rb;
-        switch (PlayerInfo.bet) {
+        switch (PlayerInfo.hBet) {
             case 5:
-                rb = findViewById(R.id.bet5);
+                rb = findViewById(R.id.hbet5);
                 rb.setChecked(true);
                 break;
             case 10:
-                rb = findViewById(R.id.bet10);
+                rb = findViewById(R.id.hbet10);
                 rb.setChecked(true);
                 break;
             case 50:
-                rb = findViewById(R.id.bet50);
+                rb = findViewById(R.id.hbet50);
                 rb.setChecked(true);
                 break;
             case 100:
-                rb = findViewById(R.id.bet100);
+                rb = findViewById(R.id.hbet100);
                 rb.setChecked(true);
                 break;
         }
@@ -43,13 +43,19 @@ public class MenuBJ_h extends AppCompatActivity {
 
     // Кнопка начала новой игры
     public void newGame(View view) {
-        if (PlayerInfo.money - PlayerInfo.bet >= 0) {
-            PlayerInfo.money -= PlayerInfo.bet;
-            PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
-            Intent intent = new Intent(MenuBJ_h.this, MainActivityBJ_h.class);
-            startActivityForResult(intent, 1);
+        if (PlayerInfo.hBet != 0) {
+            if (PlayerInfo.money >= 500) {
+                if (PlayerInfo.money - PlayerInfo.hentaiBet >= 0) {
+                    PlayerInfo.money -= PlayerInfo.hentaiBet;
+                    PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
+                    Intent intent = new Intent(MenuBJ_h.this, MainActivityBJ_h.class);
+                    startActivityForResult(intent, 1);
+                } else
+                    Toast.makeText(this, "Недостаточно монет.", Toast.LENGTH_SHORT).show();
+            } else
+                Toast.makeText(this, "Эти девочки не интересуются неудачниками.", Toast.LENGTH_SHORT).show();
         } else
-            Toast.makeText(this, "Недостаточно монет.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Сначала выберите ставку.", Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -71,17 +77,21 @@ public class MenuBJ_h extends AppCompatActivity {
     // Кнопка выбора ставки
     public void betButton(View view) {
         switch (view.getId()) {
-            case R.id.bet5:
-                PlayerInfo.bet = 5;
+            case R.id.hbet5:
+                PlayerInfo.hBet = 5;
+                PlayerInfo.hentaiBet = (int)(PlayerInfo.money * 0.05);
                 break;
-            case R.id.bet10:
-                PlayerInfo.bet = 10;
+            case R.id.hbet10:
+                PlayerInfo.hBet = 10;
+                PlayerInfo.hentaiBet = (int)(PlayerInfo.money * 0.1);
                 break;
-            case R.id.bet50:
-                PlayerInfo.bet = 50;
+            case R.id.hbet50:
+                PlayerInfo.hBet = 50;
+                PlayerInfo.hentaiBet = (int)(PlayerInfo.money * 0.5);
                 break;
-            case R.id.bet100:
-                PlayerInfo.bet = 100;
+            case R.id.hbet100:
+                PlayerInfo.hBet = 100;
+                PlayerInfo.hentaiBet = PlayerInfo.money;
                 break;
         }
     }

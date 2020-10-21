@@ -250,7 +250,7 @@ public class Map {
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 6
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
-                                new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
+                                new MapObject("character", "penguin"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("window"), new MapObject("floor"), // 7
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
@@ -286,6 +286,10 @@ public class Map {
                 map[9][7].setDoorId("1");
                 map[2][4].setDoorId("3");
                 // Устанавливаем фразы для персонажей
+                map[6][6].setText("Не обращай внимание на то, что я пингвин...\n" +
+                        "Кстати, я тут в баре услышал, что где-то в этом казино есть секретная комната. " +
+                        "Говорят, там есть прекрасные девушки...\n" +
+                        "Не знаешь случайно где она?");
                 break;
             case 3:
                 // Лабиринт
@@ -493,16 +497,16 @@ public class Map {
                                 new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("h_wall"), new MapObject("h_dark_wall")},
                         {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("floor", "h_floor"), // 3
-                                new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"), new MapObject("h_girls3"),
+                                new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"), new MapObject("character", "h_girls3"),
                                 new MapObject("h_wall"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("h_wall"), new MapObject("h_dark_wall")},
-                        {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("h_girls1"), // 4
+                        {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("character", "h_girls1"), // 4
                                 new MapObject("h_table_bj"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("h_wall"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("h_wall"), new MapObject("h_dark_wall")},
                         {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("floor", "h_floor"), // 5
                                 new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
-                                new MapObject("h_wall"), new MapObject("floor", "h_floor"), new MapObject("h_girls2"),
+                                new MapObject("h_wall"), new MapObject("floor", "h_floor"), new MapObject("character", "h_girls2"),
                                 new MapObject("h_wall"), new MapObject("h_dark_wall")},
                         {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("h_wall"), // 6
                                 new MapObject("h_wall"), new MapObject("h_wall"), new MapObject("h_wall"),
@@ -512,8 +516,8 @@ public class Map {
                                 new MapObject("floor", "e"), new MapObject("floor", "n"), new MapObject("floor", "t"),
                                 new MapObject("floor", "a"), new MapObject("floor", "i"), new MapObject("floor", "tilda"),
                                 new MapObject("h_wall"), new MapObject("h_dark_wall")},
-                        {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("h_girls5"), // 8
-                                new MapObject("h_girls4"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
+                        {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("character", "h_girls5"), // 8
+                                new MapObject("character", "h_girls4"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"), new MapObject("floor", "h_floor"),
                                 new MapObject("h_wall"), new MapObject("h_dark_wall")},
                         {new MapObject("h_dark_wall"), new MapObject("h_wall"), new MapObject("h_wall"), // 9
@@ -533,6 +537,16 @@ public class Map {
                 // Биндим id к дверям
                 map[9][5].setDoorId("2");
                 // Устанавливаем фразы для персонажей
+                map[3][5].setText("Проходи, не стесняйся ^-^\n" +
+                        "У нас тут весело. Только вот мы смогли сюда принести всего один стол и несколько колод карт, " +
+                        "но ты ведь любишь играть в Black Jack?");
+                map[4][2].setText("Хочешь поиграть с кошечкой?");
+                map[5][8].setText("Наруто, это ты?..\n" +
+                        "Кажется, нет...\n" +
+                        "Ох, после той таблетки всё так размыто...\n" +
+                        "Зачем я её взяла т_т");
+                map[8][2].setText("Привет, давненько к нам никто не заходил. Хочешь присоединиться?");
+                map[8][3].setText("Ааааах, как же хорошо она владеет своим язычком...");
                 break;
         }
         renderAvatar();

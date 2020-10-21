@@ -303,12 +303,12 @@ public class MainActivityBJ_h extends AppCompatActivity {
                     String score = "";
                     if(card1.getCardName().equals("a") && card2.getCardName().equals("a")) { // Если в начале игры в руке 2 туза
                         PlayerInfo.winsCounterBJ++;
-                        PlayerInfo.reward = PlayerInfo.bet * 3;
+                        PlayerInfo.reward = PlayerInfo.hentaiBet * 3;
                         score = "Победа!";
                     } else {
                         if (myScore == 21) {
                             PlayerInfo.winsCounterBJ++;
-                            PlayerInfo.reward = (int)(PlayerInfo.bet * 2.5);
+                            PlayerInfo.reward = (int)(PlayerInfo.hentaiBet * 2.5);
                             score = "Победа!";
                         } else if (enemyScore == 21) {
                             PlayerInfo.reward = 0;
@@ -318,7 +318,7 @@ public class MainActivityBJ_h extends AppCompatActivity {
                             score = "Поражение.";
                         } else if (enemyScore > 21) {
                             PlayerInfo.winsCounterBJ++;
-                            PlayerInfo.reward = PlayerInfo.bet * 2;
+                            PlayerInfo.reward = PlayerInfo.hentaiBet * 2;
                             score = "Победа!";
                         }
                     }
@@ -341,11 +341,11 @@ public class MainActivityBJ_h extends AppCompatActivity {
     private void finishGame() {
         String score = "";
         if(myScore == enemyScore) {
-            PlayerInfo.reward = PlayerInfo.bet;
+            PlayerInfo.reward = PlayerInfo.hentaiBet;
             score = "Ничья.";
         } else if(myScore > enemyScore) {
             PlayerInfo.winsCounterBJ++;
-            PlayerInfo.reward = PlayerInfo.bet * 2;
+            PlayerInfo.reward = PlayerInfo.hentaiBet * 2;
             score = "Победа!";
         } else if(myScore < enemyScore) {
             PlayerInfo.reward = 0;

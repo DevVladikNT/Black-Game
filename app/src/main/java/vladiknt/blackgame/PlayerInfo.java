@@ -10,7 +10,7 @@ public class PlayerInfo {
 
     // Данные об игроке
     private static String version; // В какой последней обнове изменяли структуру файла
-    private static String lastVersion = "0.6.3"; // Последняя обнова, в которой было изменение структуры файла с данными
+    private static String lastVersion = "0.6.4"; // Последняя обнова, в которой было изменение структуры файла с данными
     public static String avatar; // Аватар игрока
     public static String lastAvatar = ""; // Для хентай комнаты
     static int money; // Баланс игрока
@@ -26,6 +26,8 @@ public class PlayerInfo {
     static int counter = 0; // Сколько раз нажали на мою картинку
 
     static int bet = 10; // Текущая ставка
+    static int hentaiBet = 0; // Ставка в хентай-комнате
+    static int hBet = 0; // Последняя ставка для отображения radioButton
     static int reward = 0; // Размер выплаты после игры в случае победы
 
     // Методы загрузки/записи данных об игроке
@@ -35,7 +37,7 @@ public class PlayerInfo {
             // Если файла не было
             version = lastVersion;
             avatar = "me";
-            money = 1000;
+            money = 100;
             winsCounterBJ = 0;
             gamesCounterBJ = 0;
             winsCounterR = 0;
@@ -81,20 +83,14 @@ public class PlayerInfo {
                 }
                 if (!version.equals(lastVersion)) {
                     // Если структура файла изменилась в обновлении
-                    version = lastVersion;
-                    avatar = "me";
-                    money = 1000;
-                    winsCounterBJ = 0;
-                    gamesCounterBJ = 0;
-                    winsCounterR = 0;
-                    gamesCounterR = 0;
+                    money = 100;
                     saveInfo(file);
                 }
             } catch (Exception e) {
                 // Если не удалось прочитать файл
                 version = lastVersion;
                 avatar = "me";
-                money = 1000;
+                money = 100;
                 winsCounterBJ = 0;
                 gamesCounterBJ = 0;
                 winsCounterR = 0;
@@ -105,7 +101,7 @@ public class PlayerInfo {
     }
     static void saveInfo(File file) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
-            bw.write(version);
+            bw.write(lastVersion);
             bw.newLine();
             bw.append(avatar);
             bw.newLine();
