@@ -1,8 +1,11 @@
 package vladiknt.blackgame;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -66,6 +69,14 @@ public class StartPage extends AppCompatActivity {
         map = new Map(1);
         map.render(renderMap, getApplicationContext());
     }
+    // Конструктор вывода текста персонажа/информационной таблички
+    private Dialog makeTextWindow(String text) {
+        Dialog dialog = new Dialog(StartPage.this);
+        dialog.setContentView(R.layout.dialog_window);
+        TextView tv = dialog.findViewById(R.id.dialogText);
+        tv.setText(text);
+        return dialog;
+    }
 
     // Кнопка входа в настройки
     public void settingsButton(View view) {
@@ -80,7 +91,8 @@ public class StartPage extends AppCompatActivity {
 
     // Кнопка вверх
     public void upButton(View view) {
-        switch (map.moveUp()) {
+        String output = map.moveUp();
+        switch (output) {
             case "VNT":
                 intent = new Intent(StartPage.this, MenuVNT.class);
                 startActivity(intent);
@@ -110,13 +122,18 @@ public class StartPage extends AppCompatActivity {
                 map = new Map(4);
                 break;
         }
+        // Если нужно создать окно с сообщением
+        if (output.startsWith("text"))
+            makeTextWindow(output.substring(4)).show();
+
         TextView tv = findViewById(R.id.balance);
         tv.setText("Money: " + PlayerInfo.money);
         map.render(renderMap, getApplicationContext());
     }
     // Кнопка вниз
     public void downButton(View view) {
-        switch (map.moveDown()) {
+        String output = map.moveDown();
+        switch (output) {
             case "VNT":
                 intent = new Intent(StartPage.this, MenuVNT.class);
                 startActivity(intent);
@@ -146,13 +163,18 @@ public class StartPage extends AppCompatActivity {
                 map = new Map(4);
                 break;
         }
+        // Если нужно создать окно с сообщением
+        if (output.startsWith("text"))
+            makeTextWindow(output.substring(4)).show();
+
         TextView tv = findViewById(R.id.balance);
         tv.setText("Money: " + PlayerInfo.money);
         map.render(renderMap, getApplicationContext());
     }
     // Кнопка вправо
     public void rightButton(View view) {
-        switch (map.moveRight()) {
+        String output = map.moveRight();
+        switch (output) {
             case "VNT":
                 intent = new Intent(StartPage.this, MenuVNT.class);
                 startActivity(intent);
@@ -182,13 +204,18 @@ public class StartPage extends AppCompatActivity {
                 map = new Map(4);
                 break;
         }
+        // Если нужно создать окно с сообщением
+        if (output.startsWith("text"))
+            makeTextWindow(output.substring(4)).show();
+
         TextView tv = findViewById(R.id.balance);
         tv.setText("Money: " + PlayerInfo.money);
         map.render(renderMap, getApplicationContext());
     }
     // Кнопка влево
     public void leftButton(View view) {
-        switch (map.moveLeft()) {
+        String output = map.moveLeft();
+        switch (output) {
             case "VNT":
                 intent = new Intent(StartPage.this, MenuVNT.class);
                 startActivity(intent);
@@ -218,6 +245,10 @@ public class StartPage extends AppCompatActivity {
                 map = new Map(4);
                 break;
         }
+        // Если нужно создать окно с сообщением
+        if (output.startsWith("text"))
+            makeTextWindow(output.substring(4)).show();
+
         TextView tv = findViewById(R.id.balance);
         tv.setText("Money: " + PlayerInfo.money);
         map.render(renderMap, getApplicationContext());

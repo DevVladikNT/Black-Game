@@ -33,6 +33,9 @@ public class Map {
 
     public String moveUp() {
         switch (map[position[0] - 1][position[1]].getType()) {
+            case "character":
+            case "info":
+                return "text" + map[position[0] - 1][position[1]].getText();
             case "slots":
                 return "VNT";
             case "table_r":
@@ -58,6 +61,9 @@ public class Map {
     }
     public String moveDown() {
         switch (map[position[0] + 1][position[1]].getType()) {
+            case "character":
+            case "info":
+                return "text" + map[position[0] + 1][position[1]].getText();
             case "slots":
                 return "VNT";
             case "table_r":
@@ -83,6 +89,9 @@ public class Map {
     }
     public String moveRight() {
         switch (map[position[0]][position[1] + 1].getType()) {
+            case "character":
+            case "info":
+                return "text" + map[position[0]][position[1] + 1].getText();
             case "slots":
                 return "VNT";
             case "table_r":
@@ -108,6 +117,9 @@ public class Map {
     }
     public String moveLeft() {
         switch (map[position[0]][position[1] - 1].getType()) {
+            case "character":
+            case "info":
+                return "text" + map[position[0]][position[1] - 1].getText();
             case "slots":
                 return "VNT";
             case "table_r":
@@ -156,7 +168,7 @@ public class Map {
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall"),
                                 new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 3
-                                new MapObject("floor"), new MapObject("table_bj"), new MapObject("girls1"),
+                                new MapObject("floor"), new MapObject("table_bj"), new MapObject("character", "girls1"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall"),
                                 new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 4
@@ -169,7 +181,7 @@ public class Map {
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 6
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
-                                new MapObject("floor"), new MapObject("boys1"), new MapObject("slots"),
+                                new MapObject("floor"), new MapObject("character", "boys1"), new MapObject("slots"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("door"), new MapObject("floor"), // 7
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("floor"),
@@ -180,7 +192,7 @@ public class Map {
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("slots"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 9
-                                new MapObject("girls2"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("character", "girls2"), new MapObject("floor"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 10
@@ -206,6 +218,13 @@ public class Map {
                 };
                 // Биндим id к дверям
                 map[7][1].setDoorId("2");
+                // Устанавливаем фразы для персонажей
+                map[3][5].setText("Давай сыграем в Black Jack?) Уверена, ты сможешь много заработать на этом. " +
+                        "Если не умеешь играть, можешь почитать правила, которые тебе должны были выдать на входе.");
+                map[6][7].setText("Не мешай мне! Не видишь я играю? (Вы выдите как собеседнику выпадают 3 кота)");
+                map[9][3].setText("Добро пожаловать в наше казино. В этой комнате есть несколько интересных игр: Black Jack, " +
+                        "Roulette и VNT-Slots. Мне очень нравятся VNT-Slots, но я еще ни разу не выбила джекпот((. " +
+                        "Остальные игры можешь поискать в других комнатах ^-^");
                 break;
             case 2:
                 // Комната с окнами и секреткой
@@ -266,6 +285,7 @@ public class Map {
                 // Биндим id к дверям
                 map[9][7].setDoorId("1");
                 map[2][4].setDoorId("3");
+                // Устанавливаем фразы для персонажей
                 break;
             case 3:
                 // Лабиринт
@@ -512,6 +532,7 @@ public class Map {
                 buff = new MapObject("floor", "h_floor");
                 // Биндим id к дверям
                 map[9][5].setDoorId("2");
+                // Устанавливаем фразы для персонажей
                 break;
         }
         renderAvatar();
