@@ -44,6 +44,10 @@ public class Map {
                 return "BJ";
             case "h_table_bj":
                 return "h_BJ";
+            case "table_zonk":
+                return "Zonk";
+            case "tv":
+                return "Dance";
             case "door":
                 return "door" + map[position[0] - 1][position[1]].getDoorId();
         }
@@ -72,6 +76,10 @@ public class Map {
                 return "BJ";
             case "h_table_bj":
                 return "h_BJ";
+            case "table_zonk":
+                return "Zonk";
+            case "tv":
+                return "Dance";
             case "door":
                 return "door" + map[position[0] + 1][position[1]].getDoorId();
         }
@@ -100,6 +108,10 @@ public class Map {
                 return "BJ";
             case "h_table_bj":
                 return "h_BJ";
+            case "table_zonk":
+                return "Zonk";
+            case "tv":
+                return "Dance";
             case "door":
                 return "door" + map[position[0]][position[1] + 1].getDoorId();
         }
@@ -128,6 +140,10 @@ public class Map {
                 return "BJ";
             case "h_table_bj":
                 return "h_BJ";
+            case "table_zonk":
+                return "Zonk";
+            case "tv":
+                return "Dance";
             case "door":
                 return "door" + map[position[0]][position[1] - 1].getDoorId();
         }
@@ -272,7 +288,7 @@ public class Map {
                         {new MapObject("dark_wall"), new MapObject("window"), new MapObject("floor"), // 13
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
-                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 14
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("door", "downstairs"), // 14
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
                         {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("wall"), // 15
@@ -285,11 +301,12 @@ public class Map {
                 // Биндим id к дверям
                 map[9][7].setDoorId("1");
                 map[2][4].setDoorId("3");
+                map[14][2].setDoorId("5");
                 // Устанавливаем фразы для персонажей
                 map[6][6].setText("Не обращай внимание на то, что я пингвин...\n" +
                         "Кстати, я тут в баре услышал, что где-то в этом казино есть секретная комната. " +
-                        "Говорят, там есть прекрасные девушки...\n" +
-                        "Не знаешь случайно где она?");
+                        "Говорят, там прекрасные девушки...\n" +
+                        "Не знаешь, случайно, где она?");
                 break;
             case 3:
                 // Лабиринт
@@ -546,8 +563,102 @@ public class Map {
                         "Ох, после той таблетки всё так размыто...\n" +
                         "Зачем я её взяла т_т");
                 map[8][2].setText("Привет, давненько к нам никто не заходил. Хочешь присоединиться?");
-                map[8][3].setText("Ааааах, как же хорошо она владеет своим язычком...");
+                map[8][3].setText("Ааааах, как же хорошо...");
                 break;
+            case 5:
+                // Коридор к бару
+                position = new int[]{2, 3};
+                map = new MapObject[][]{
+                        {new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall"), // 0
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("wall"), // 1
+                                new MapObject("wall"), new MapObject("wall"), new MapObject("wall"),
+                                new MapObject("wall"), new MapObject("wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("door", "upstairs"), // 2
+                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("door"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("wall"), // 3
+                                new MapObject("wall"), new MapObject("wall"), new MapObject("wall"),
+                                new MapObject("wall"), new MapObject("wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall"), // 4
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")}
+                };
+                // Биндим id к дверям
+                map[2][2].setDoorId("2");
+                map[2][7].setDoorId("6");
+                break;
+            case 6:
+                // Бар
+                position = new int[]{12, 2};
+                map = new MapObject[][]{
+                        {new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall"), // 0
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("wall"), // 1
+                                new MapObject("wall"), new MapObject("wall"), new MapObject("wall"),
+                                new MapObject("wall"), new MapObject("wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 2
+                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("door"), new MapObject("floor"), // 3
+                                new MapObject("character", "me"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("bar_table"), // 4
+                                new MapObject("table_zonk"), new MapObject("bar_table"), new MapObject("bar_table"),
+                                new MapObject("floor", "bar_door"), new MapObject("wall"), new MapObject("tv"),
+                                new MapObject("wall"), new MapObject("wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 5
+                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 6
+                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("dance_floor"), new MapObject("dance_floor"),
+                                new MapObject("dance_floor"), new MapObject("wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("door"), new MapObject("floor"), // 7
+                                new MapObject("floor"), new MapObject("table"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("dance_floor"), new MapObject("dance_floor"),
+                                new MapObject("dance_floor"), new MapObject("wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 8
+                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("dance_floor"), new MapObject("dance_floor"),
+                                new MapObject("dance_floor"), new MapObject("wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 9
+                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 10
+                                new MapObject("floor"), new MapObject("table"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("wall"), new MapObject("wall"),
+                                new MapObject("wall"), new MapObject("wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 11
+                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("door"), new MapObject("floor"), // 12
+                                new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
+                                new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("wall"), // 13
+                                new MapObject("wall"), new MapObject("wall"), new MapObject("wall"),
+                                new MapObject("wall"), new MapObject("wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
+                        {new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall"), // 14
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall"),
+                                new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")}
+                };
+                // Биндим id к дверям
+                // map[3][1];
+                map[12][1].setDoorId("5");
+                // Устанавливаем фразы для персонажей
+                map[3][3].setText("Эй! Как ты сюда пробрался??");
         }
         renderAvatar();
     }

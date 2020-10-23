@@ -109,19 +109,17 @@ public class StartPage extends AppCompatActivity {
                 intent = new Intent(StartPage.this, MenuBJ_h.class);
                 startActivity(intent);
                 break;
-            case "door1":
-                map = new Map(1);
+            case "Zonk":
+                // todo
                 break;
-            case "door2":
-                map = new Map(2);
-                break;
-            case "door3":
-                map = new Map(3);
-                break;
-            case "door4":
-                map = new Map(4);
+            case "Dance":
+                intent = new Intent(StartPage.this, MenuDance.class);
+                startActivity(intent);
                 break;
         }
+        // Если это дверь
+        if (output.startsWith("door"))
+            map = new Map(Integer.parseInt(output.substring(4)));
         // Если нужно создать окно с сообщением
         if (output.startsWith("text"))
             makeTextWindow(output.substring(4)).show();
@@ -150,19 +148,17 @@ public class StartPage extends AppCompatActivity {
                 intent = new Intent(StartPage.this, MenuBJ_h.class);
                 startActivity(intent);
                 break;
-            case "door1":
-                map = new Map(1);
+            case "Zonk":
+                // todo
                 break;
-            case "door2":
-                map = new Map(2);
-                break;
-            case "door3":
-                map = new Map(3);
-                break;
-            case "door4":
-                map = new Map(4);
+            case "Dance":
+                intent = new Intent(StartPage.this, MenuDance.class);
+                startActivity(intent);
                 break;
         }
+        // Если это дверь
+        if (output.startsWith("door"))
+            map = new Map(Integer.parseInt(output.substring(4)));
         // Если нужно создать окно с сообщением
         if (output.startsWith("text"))
             makeTextWindow(output.substring(4)).show();
@@ -191,19 +187,17 @@ public class StartPage extends AppCompatActivity {
                 intent = new Intent(StartPage.this, MenuBJ_h.class);
                 startActivity(intent);
                 break;
-            case "door1":
-                map = new Map(1);
+            case "Zonk":
+                // todo
                 break;
-            case "door2":
-                map = new Map(2);
-                break;
-            case "door3":
-                map = new Map(3);
-                break;
-            case "door4":
-                map = new Map(4);
+            case "Dance":
+                intent = new Intent(StartPage.this, MenuDance.class);
+                startActivity(intent);
                 break;
         }
+        // Если это дверь
+        if (output.startsWith("door"))
+            map = new Map(Integer.parseInt(output.substring(4)));
         // Если нужно создать окно с сообщением
         if (output.startsWith("text"))
             makeTextWindow(output.substring(4)).show();
@@ -232,19 +226,17 @@ public class StartPage extends AppCompatActivity {
                 intent = new Intent(StartPage.this, MenuBJ_h.class);
                 startActivity(intent);
                 break;
-            case "door1":
-                map = new Map(1);
+            case "Zonk":
+                // todo
                 break;
-            case "door2":
-                map = new Map(2);
-                break;
-            case "door3":
-                map = new Map(3);
-                break;
-            case "door4":
-                map = new Map(4);
+            case "Dance":
+                intent = new Intent(StartPage.this, MenuDance.class);
+                startActivity(intent);
                 break;
         }
+        // Если это дверь
+        if (output.startsWith("door"))
+            map = new Map(Integer.parseInt(output.substring(4)));
         // Если нужно создать окно с сообщением
         if (output.startsWith("text"))
             makeTextWindow(output.substring(4)).show();

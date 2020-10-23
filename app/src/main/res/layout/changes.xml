@@ -44,7 +44,7 @@
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_info_top"
-            android:text="Black Game v0.6.4"
+            android:text="Black Game v0.6.5"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
