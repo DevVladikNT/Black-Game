@@ -66,7 +66,7 @@
                 android:textSize="16sp" />
 
             <ImageView
-                android:background="@color/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -86,7 +86,7 @@
                 android:textSize="16sp" />
 
             <ImageView
-                android:background="@color/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -94,7 +94,7 @@
                 android:src="@drawable/rules_bj_2" />
 
             <ImageView
-                android:background="@color/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -132,7 +132,7 @@
                 android:textSize="16sp" />
 
             <ImageView
-                android:background="@color/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"

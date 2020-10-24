@@ -2,38 +2,41 @@ package vladiknt.blackgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Queue;
 import java.util.Stack;
 
 public class MainActivityDance extends AppCompatActivity {
 
-    long time = System.currentTimeMillis();
+    long time;
     Stack<String> st = new Stack<>();
-    TextView tv1 = findViewById(R.id.firstElement);
-    TextView tv2 = findViewById(R.id.secondElement);
-    TextView tv3 = findViewById(R.id.thirdElement);
-    TextView tv4 = findViewById(R.id.fourthElement);
-    ImageView iv = findViewById(R.id.danceImage);
+    TextView tv1;
+    TextView tv2;
+    TextView tv3;
+    TextView tv4;
+    ImageView iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_dance);
+        tv1 = findViewById(R.id.firstElement);
+        tv2 = findViewById(R.id.secondElement);
+        tv3 = findViewById(R.id.thirdElement);
+        tv4 = findViewById(R.id.fourthElement);
+        iv = findViewById(R.id.danceImage);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 loadStack();
+                time = System.currentTimeMillis();
                 Toast.makeText(MainActivityDance.this, "Начали!", Toast.LENGTH_SHORT).show();
                 MainActivityDance.this.tv1.setText(MainActivityDance.this.st.pop());
                 MainActivityDance.this.tv2.setText(MainActivityDance.this.st.pop());
@@ -48,7 +51,7 @@ public class MainActivityDance extends AppCompatActivity {
         double k; // Коэффициент награды
         String result;
         if (win) {
-            k = 10.0 / (System.currentTimeMillis() - time);
+            k = 10.0 * 1000 / (System.currentTimeMillis() - time);
             result = "Заработано: "; // Результат игры
             PlayerInfo.reward = (int)(PlayerInfo.bet * k);
             result += PlayerInfo.reward; // Записываем сколько монет получили
@@ -93,7 +96,7 @@ public class MainActivityDance extends AppCompatActivity {
             tv3.clearComposingText();
             tv3.setText(tv4.getText());
             tv4.clearComposingText();
-            if (st.empty())
+            if (st.isEmpty())
                 tv4.setText("");
             else
                 tv4.setText(st.pop());

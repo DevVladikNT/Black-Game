@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivityDance"></activity>
+        <activity android:name=".RulesDance"></activity>
+        <activity android:name=".MainActivityDance" />
         <activity android:name=".MenuDance" />
         <activity android:name=".Inventory" />
         <activity android:name=".MainActivityBJ_h" />

@@ -33,5 +33,10 @@ public class Rules extends AppCompatActivity {
         Intent intent = new Intent(Rules.this, RulesVNT.class);
         startActivity(intent);
     }
+    // Кнопка перехода в правила о Dance
+    public void rulesDanceButton(View view) {
+        Intent intent = new Intent(Rules.this, RulesDance.class);
+        startActivity(intent);
+    }
 
 }
