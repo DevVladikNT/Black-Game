@@ -36,81 +36,146 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/statActivityBJ"
+    <ScrollView
         android:layout_below="@id/statActivityTop"
+        android:layout_above="@id/resetStatistics"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttons_style_p"
-        android:orientation="vertical"
-        android:padding="8dp"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
         android:layout_marginBottom="16dp">
 
-        <TextView
-            android:gravity="center_horizontal"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Black Jack"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"/>
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/statActivityWinsBJ"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50%"
-            android:textSize="60sp"
-            android:textColor="#FFFFFF"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttons_style_p"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:layout_marginBottom="16dp">
 
-        <TextView
-            android:id="@+id/statActivityGamesBJ"
-            android:gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="За всё время было сыграно 10 раз(а)."
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"/>
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Black Jack"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"/>
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/statActivityWinsBJ"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50%"
+                    android:textSize="60sp"
+                    android:textColor="#FFFFFF"/>
 
-    <LinearLayout
-        android:layout_below="@id/statActivityBJ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttons_style_p"
-        android:orientation="vertical"
-        android:padding="8dp">
+                <TextView
+                    android:id="@+id/statActivityGamesBJ"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="За всё время было сыграно 10 раз(а)."
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"/>
 
-        <TextView
-            android:gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Roulette"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"/>
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/statActivityWinsR"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="36%"
-            android:textSize="60sp"
-            android:textColor="#FFFFFF"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttons_style_p"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:layout_marginBottom="16dp">
 
-        <TextView
-            android:id="@+id/statActivityGamesR"
-            android:gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="За всё время было сыграно 23 раз(а)."
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"/>
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Roulette"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"/>
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/statActivityWinsR"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="36%"
+                    android:textSize="60sp"
+                    android:textColor="#FFFFFF"/>
+
+                <TextView
+                    android:id="@+id/statActivityGamesR"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="За всё время было сыграно 23 раз(а)."
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttons_style_p"
+                android:orientation="vertical"
+                android:padding="8dp" >
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dance"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/statActivityTimeD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9,2"
+                        android:textSize="60sp"
+                        android:textColor="#FFFFFF"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" sec."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/statActivityGamesD"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="За всё время было сыграно 12 раз(а)."
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <TextView
+        android:id="@+id/resetStatistics"
         android:elevation="4dp"
         android:textSize="20sp"
         android:textColor="#FFFFFF"

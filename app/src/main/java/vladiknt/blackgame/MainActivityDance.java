@@ -14,7 +14,7 @@ import java.util.Stack;
 
 public class MainActivityDance extends AppCompatActivity {
 
-    long time;
+    long start;
     Stack<String> st = new Stack<>();
     TextView tv1;
     TextView tv2;
@@ -36,7 +36,7 @@ public class MainActivityDance extends AppCompatActivity {
             @Override
             public void run() {
                 loadStack();
-                time = System.currentTimeMillis();
+                start = System.currentTimeMillis();
                 Toast.makeText(MainActivityDance.this, "Начали!", Toast.LENGTH_SHORT).show();
                 MainActivityDance.this.tv1.setText(MainActivityDance.this.st.pop());
                 MainActivityDance.this.tv2.setText(MainActivityDance.this.st.pop());
@@ -49,17 +49,27 @@ public class MainActivityDance extends AppCompatActivity {
     // При завершении партии
     private void finishGame(boolean win) {
         double k; // Коэффициент награды
+        double time; // Время, за которое
         String result;
         if (win) {
-            k = 10.0 * 1000 / (System.currentTimeMillis() - time);
+            time = (System.currentTimeMillis() - start) / 1000.0;
+            // Запись времени в статистику
+            // Не совсем среднее время, просто сделано так, чтобы статистике было проще изменяться
+            if (PlayerInfo.averageTimeD == 0)
+                PlayerInfo.averageTimeD = time;
+            else
+                PlayerInfo.averageTimeD = (PlayerInfo.averageTimeD * 10 + time) / 11;
+
+            k = 10.0 / time;
             result = "Заработано: "; // Результат игры
             PlayerInfo.reward = (int)(PlayerInfo.bet * k);
             result += PlayerInfo.reward; // Записываем сколько монет получили
             PlayerInfo.money += PlayerInfo.reward;
-            PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
         } else {
             result = "Поражение.";
         }
+        PlayerInfo.gamesCounterD++;
+        PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
 
         Intent intent = new Intent();
         intent.putExtra("result", result);

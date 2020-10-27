@@ -1,15 +1,23 @@
 package vladiknt.blackgame;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import vladiknt.blackgame.blackjack.Deck;
 import vladiknt.blackgame.blackjack.Node;
@@ -54,8 +62,19 @@ public class MainActivityBJ_h extends AppCompatActivity {
 
         // Установка аватарки противника (всегда хентай)
         ImageView image = findViewById(R.id.enemyImage);
-        String str = "drawable/anime18_" + ((int)(Math.random()*100000)%35 + 1);
-        image.setImageResource(getApplicationContext().getResources().getIdentifier(str, null, getApplicationContext().getPackageName()));
+        String str = "images/anime18_" + ((int)(Math.random()*100000)%35 + 1) + ".jpg";
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference ref = storageReference.child(str);
+        final long FIVE_MEGABYTES = 5 * 1024 * 1024;
+        ref.getBytes(FIVE_MEGABYTES).addOnSuccessListener(bytesPrm -> {
+            Bitmap bmp = BitmapFactory.decodeByteArray(bytesPrm, 0, bytesPrm.length);
+            image.setImageBitmap(bmp);
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                //
+            }
+        });
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

@@ -59,7 +59,7 @@
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
                     android:onClick="changeTheme"
-                    android:src="@drawable/boy3" />
+                    android:src="@drawable/boy_theme" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -87,7 +87,7 @@
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
                     android:onClick="changeTheme"
-                    android:src="@drawable/girl4" />
+                    android:src="@drawable/girl_theme" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -124,7 +124,7 @@
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
                     android:onClick="changeTheme"
-                    android:src="@drawable/anime2" />
+                    android:src="@drawable/anime_theme" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -152,7 +152,7 @@
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
                     android:onClick="changeTheme"
-                    android:src="@drawable/asian1" />
+                    android:src="@drawable/asian_theme" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -188,7 +188,7 @@
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
                     android:onClick="changeTheme"
-                    android:src="@drawable/bw1" />
+                    android:src="@drawable/bw_theme" />
 
                 <TextView
                     android:layout_width="match_parent"

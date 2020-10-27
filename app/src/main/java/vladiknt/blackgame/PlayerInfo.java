@@ -10,7 +10,7 @@ public class PlayerInfo {
 
     // Данные об игроке
     private static String version; // В какой последней обнове изменяли структуру файла
-    private static String lastVersion = "0.6.4"; // Последняя обнова, в которой было изменение структуры файла с данными
+    private static String lastVersion = "0.6.6"; // Последняя обнова, в которой было изменение структуры файла с данными
     public static String avatar; // Аватар игрока
     public static String lastAvatar = ""; // Для хентай комнаты
     static int money; // Баланс игрока
@@ -18,6 +18,8 @@ public class PlayerInfo {
     static int gamesCounterBJ; // Кол-во игр в Black Jack
     static int winsCounterR; // Кол-во побед в Roulette
     static int gamesCounterR; // Кол-во игр в Roulette
+    static double averageTimeD; // Среднее время игры в Dance
+    static int gamesCounterD; // Кол-во игр в Dance
 
     // Данные для отображения кастомизации в приложении
     static String theme = "Standart"; // Название выбранной темы для отображения
@@ -42,6 +44,8 @@ public class PlayerInfo {
             gamesCounterBJ = 0;
             winsCounterR = 0;
             gamesCounterR = 0;
+            averageTimeD = 0;
+            gamesCounterD = 0;
             saveInfo(file);
         } else {
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -75,6 +79,12 @@ public class PlayerInfo {
                                 gamesCounterR = Integer.parseInt(buff);
                                 break;
                             case 7:
+                                averageTimeD = Double.parseDouble(buff);
+                                break;
+                            case 8:
+                                gamesCounterD = Integer.parseInt(buff);
+                                break;
+                            case 9:
                                 theme = buff;
                                 break;
                         }
@@ -83,7 +93,8 @@ public class PlayerInfo {
                 }
                 if (!version.equals(lastVersion)) {
                     // Если структура файла изменилась в обновлении
-                    money = 100;
+                    averageTimeD = 0;
+                    gamesCounterD = 0;
                     saveInfo(file);
                 }
             } catch (Exception e) {
@@ -95,6 +106,8 @@ public class PlayerInfo {
                 gamesCounterBJ = 0;
                 winsCounterR = 0;
                 gamesCounterR = 0;
+                averageTimeD = 0;
+                gamesCounterD = 0;
                 saveInfo(file);
             }
         }
@@ -114,6 +127,10 @@ public class PlayerInfo {
             bw.append("" + winsCounterR);
             bw.newLine();
             bw.append("" + gamesCounterR);
+            bw.newLine();
+            bw.append("" + averageTimeD);
+            bw.newLine();
+            bw.append("" + gamesCounterD);
             bw.newLine();
             bw.append(theme);
             bw.newLine();

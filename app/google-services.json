@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "639585107767",
+    "firebase_url": "https://black-game-146d9.firebaseio.com",
+    "project_id": "black-game-146d9",
+    "storage_bucket": "black-game-146d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639585107767:android:97e5c7f4414d812434e4b2",
+        "android_client_info": {
+          "package_name": "vladiknt.blackgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639585107767-tnrffh2rsjj3cg7gsj24t8rjs8ut57cb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBM2h_FGJmFMiSPMO-Lm22Yd0KwjUmO14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639585107767-tnrffh2rsjj3cg7gsj24t8rjs8ut57cb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

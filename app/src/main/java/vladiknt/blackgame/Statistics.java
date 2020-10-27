@@ -13,8 +13,9 @@ public class Statistics extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statistics);
+        TextView tv;
 
-        TextView tv = findViewById(R.id.statActivityWinsBJ);
+        tv = findViewById(R.id.statActivityWinsBJ);
         String str;
         if (PlayerInfo.gamesCounterBJ == 0)
             str = "0%";
@@ -29,12 +30,21 @@ public class Statistics extends AppCompatActivity {
             str = "" + (100 * PlayerInfo.winsCounterR / PlayerInfo.gamesCounterR) + "%";
         tv.clearComposingText();
         tv.setText(str);
+        tv = findViewById(R.id.statActivityTimeD);
+        str = "" + ((int)(PlayerInfo.averageTimeD * 10)) / 10.0;
+        tv.clearComposingText();
+        tv.setText(str);
+
         tv = findViewById(R.id.statActivityGamesBJ);
         str = "За всё время было сыграно " + PlayerInfo.gamesCounterBJ + " раз(а).";
         tv.clearComposingText();
         tv.setText(str);
         tv = findViewById(R.id.statActivityGamesR);
         str = "За всё время было сыграно " + PlayerInfo.gamesCounterR + " раз(а).";
+        tv.clearComposingText();
+        tv.setText(str);
+        tv = findViewById(R.id.statActivityGamesD);
+        str = "За всё время было сыграно " + PlayerInfo.gamesCounterD + " раз(а).";
         tv.clearComposingText();
         tv.setText(str);
     }
@@ -47,6 +57,8 @@ public class Statistics extends AppCompatActivity {
             PlayerInfo.gamesCounterBJ = 0;
             PlayerInfo.winsCounterR = 0;
             PlayerInfo.gamesCounterR = 0;
+            PlayerInfo.averageTimeD = 0;
+            PlayerInfo.gamesCounterD = 0;
             PlayerInfo.saveInfo(getFileStreamPath(PlayerInfo.data));
             finish();
         } else

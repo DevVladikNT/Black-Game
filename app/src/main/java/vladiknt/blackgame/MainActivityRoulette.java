@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivityRoulette extends AppCompatActivity {
@@ -17,11 +18,20 @@ public class MainActivityRoulette extends AppCompatActivity {
         setContentView(R.layout.activity_main_roulette);
     }
 
+    // Кнопка помощи во время игры
+    public void helpButton(View view) {
+        Intent intent = new Intent(MainActivityRoulette.this, RulesRoulette.class);
+        startActivity(intent);
+    }
+
     private int answer;
     private int number;
     private boolean isNumber, red, black, odd, even, n1st12, n2nd12, n3rd12, n118, n1936, n121, n221, n321;
 
     public void setAnswer(View view) {
+        TextView tv = findViewById(R.id.expectedResult);
+        String str = "Expected: ";
+
         isNumber = false;
         red = false;
         black = false;
@@ -39,188 +49,239 @@ public class MainActivityRoulette extends AppCompatActivity {
             case R.id.n0:
                 isNumber = true;
                 number = 0;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n1:
                 isNumber = true;
                 number = 1;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n2:
                 isNumber = true;
                 number = 2;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n3:
                 isNumber = true;
                 number = 3;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n4:
                 isNumber = true;
                 number = 4;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n5:
                 isNumber = true;
                 number = 5;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n6:
                 isNumber = true;
                 number = 6;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n7:
                 isNumber = true;
                 number = 7;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n8:
                 isNumber = true;
                 number = 8;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n9:
                 isNumber = true;
                 number = 9;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n10:
                 isNumber = true;
                 number = 10;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n11:
                 isNumber = true;
                 number = 11;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n12:
                 isNumber = true;
                 number = 12;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n13:
                 isNumber = true;
                 number = 13;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n14:
                 isNumber = true;
                 number = 14;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n15:
                 isNumber = true;
                 number = 15;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n16:
                 isNumber = true;
                 number = 16;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n17:
                 isNumber = true;
                 number = 17;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n18:
                 isNumber = true;
                 number = 18;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n19:
                 isNumber = true;
                 number = 19;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n20:
                 isNumber = true;
                 number = 20;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n21:
                 isNumber = true;
                 number = 21;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n22:
                 isNumber = true;
                 number = 22;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n23:
                 isNumber = true;
                 number = 23;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n24:
                 isNumber = true;
                 number = 24;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n25:
                 isNumber = true;
                 number = 25;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n26:
                 isNumber = true;
                 number = 26;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n27:
                 isNumber = true;
                 number = 27;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n28:
                 isNumber = true;
                 number = 28;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n29:
                 isNumber = true;
                 number = 29;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n30:
                 isNumber = true;
                 number = 30;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n31:
                 isNumber = true;
                 number = 31;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n32:
                 isNumber = true;
                 number = 32;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n33:
                 isNumber = true;
                 number = 33;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n34:
                 isNumber = true;
                 number = 34;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n35:
                 isNumber = true;
                 number = 35;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.n36:
                 isNumber = true;
                 number = 36;
+                str += PlayerInfo.bet * 36;
                 break;
             case R.id.nBlack:
                 black = true;
+                str += PlayerInfo.bet * 2;
                 break;
             case R.id.nRed:
                 red = true;
+                str += PlayerInfo.bet * 2;
                 break;
             case R.id.nEven:
                 even = true;
+                str += PlayerInfo.bet * 2;
                 break;
             case R.id.nOdd:
                 odd = true;
+                str += PlayerInfo.bet * 2;
                 break;
             case R.id.n118:
                 n118 = true;
+                str += PlayerInfo.bet * 2;
                 break;
             case R.id.n1936:
                 n1936 = true;
+                str += PlayerInfo.bet * 2;
                 break;
             case R.id.n112:
                 n1st12 = true;
+                str += PlayerInfo.bet * 3;
                 break;
             case R.id.n212:
                 n2nd12 = true;
+                str += PlayerInfo.bet * 3;
                 break;
             case R.id.n312:
                 n3rd12 = true;
+                str += PlayerInfo.bet * 3;
                 break;
             case R.id.n121:
                 n121 = true;
+                str += PlayerInfo.bet * 3;
                 break;
             case R.id.n221:
                 n221 = true;
+                str += PlayerInfo.bet * 3;
                 break;
             case R.id.n321:
                 n321 = true;
+                str += PlayerInfo.bet * 3;
                 break;
         }
+        tv.clearComposingText();
+        tv.setText(str);
         Toast.makeText(getApplicationContext(), "Ставка принята.", Toast.LENGTH_SHORT).show();
     }
     public void acceptAnswer(View view) {

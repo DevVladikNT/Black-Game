@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity"
+    android:padding="16dp"
+    android:background="@color/colorPrimaryDark">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:elevation="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons_hidden"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:text="Sign Up"
+            android:textColor="#FFFFFF"/>
+
+        <EditText
+            android:id="@+id/signUpLogin"
+            android:hint="Email"
+            android:textColorHint="#DDDDDD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/signUpPassword"
+            android:hint="Password"
+            android:textColorHint="#DDDDDD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/repeatPassword"
+            android:hint="Repeat password"
+            android:textColorHint="#DDDDDD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/buttons_style_a"
+            android:elevation="4dp"
+            android:onClick="registerUser"
+            android:paddingStart="12dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="4dp"
+            android:text="Enter"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,15 +1,31 @@
 package vladiknt.blackgame;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Registry;
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.InputStream;
 
 import vladiknt.blackgame.blackjack.Deck;
 import vladiknt.blackgame.blackjack.Node;
@@ -57,39 +73,50 @@ public class MainActivityBJ extends AppCompatActivity {
         String str = "";
         switch (PlayerInfo.theme) {
             case "Standart":
-                str = "drawable/standart" + ((int)(Math.random()*100000)%7 + 1);
+                str = "images/standart" + ((int)(Math.random()*100000)%7 + 1) + ".png";
                 break;
             case "Anime":
                 if (PlayerInfo.secret)
-                    str = "drawable/anime_" + ((int)(Math.random()*100000)%30 + 1);
+                    str = "images/anime_" + ((int)(Math.random()*100000)%30 + 1) + ".jpg";
                 else
-                    str = "drawable/anime" + ((int)(Math.random()*100000)%11 + 1);
+                    str = "images/anime" + ((int)(Math.random()*100000)%11 + 1) + ".jpg";
                 break;
             case "Asians":
                 if (PlayerInfo.secretSex)
-                    str = "drawable/asian18_" + ((int)(Math.random()*100000)%27 + 1);
+                    str = "images/asian18_" + ((int)(Math.random()*100000)%27 + 1) + ".jpg";
                 else if (PlayerInfo.secret)
-                    str = "drawable/asian_" + ((int)(Math.random()*100000)%40 + 1);
+                    str = "images/asian_" + ((int)(Math.random()*100000)%40 + 1) + ".jpg";
                 else
-                    str = "drawable/asian" + ((int)(Math.random()*100000)%32 + 1);
+                    str = "images/asian" + ((int)(Math.random()*100000)%32 + 1) + ".jpg";
                 break;
             case "Boys":
-                str = "drawable/boy" + ((int)(Math.random()*100000)%10 + 1);
+                str = "images/boy" + ((int)(Math.random()*100000)%10 + 1) + ".jpg";
                 break;
             case "Girls":
                 if (PlayerInfo.secret)
-                    str = "drawable/girl_" + ((int)(Math.random()*100000)%32 + 1);
+                    str = "images/girl_" + ((int)(Math.random()*100000)%32 + 1) + ".jpg";
                 else
-                    str = "drawable/girl" + ((int)(Math.random()*100000)%21 + 1);
+                    str = "images/girl" + ((int)(Math.random()*100000)%21 + 1) + ".jpg";
                 break;
             case "BW":
                 if (PlayerInfo.secret)
-                    str = "drawable/bw_" + ((int)(Math.random()*100000)%15 + 1);
+                    str = "images/bw_" + ((int)(Math.random()*100000)%15 + 1) + ".jpg";
                 else
-                    str = "drawable/bw" + ((int)(Math.random()*100000)%10 + 1);
+                    str = "images/bw" + ((int)(Math.random()*100000)%10 + 1) + ".jpg";
                 break;
         }
-        image.setImageResource(getApplicationContext().getResources().getIdentifier(str, null, getApplicationContext().getPackageName()));
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference ref = storageReference.child(str);
+        final long FIVE_MEGABYTES = 5 * 1024 * 1024;
+        ref.getBytes(FIVE_MEGABYTES).addOnSuccessListener(bytesPrm -> {
+            Bitmap bmp = BitmapFactory.decodeByteArray(bytesPrm, 0, bytesPrm.length);
+            image.setImageBitmap(bmp);
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                //
+            }
+        });
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

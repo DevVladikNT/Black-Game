@@ -240,7 +240,8 @@ public class Map {
                         "Мы не \"подкручиваем\" ботов и не пытаемся скрыть принцип работы режимов. Соответствующую статистику по играм " +
                         "Вы так же можете посмотреть в меню. В случае обнаружения каких-либо ошибок в приложении, убедительная просьба " +
                         "связаться с автором приложения, контакты которого указаны в разделе меню \"О разработчике\". Благодарим за " +
-                        "понимание. Приятной игры!");
+                        "понимание. Приятной игры!\n" +
+                        "Если у вас закончились монеты и вы больше не можете делать ставки в играх, используйте промокод MONEY2020.");
                 // Устанавливаем фразы для персонажей
                 map[3][5].setText("Давай сыграем в Black Jack?) Уверена, ты сможешь много заработать на этом. " +
                         "Если не умеешь играть, можешь почитать правила, которые тебе должны были выдать на входе.");
@@ -612,7 +613,7 @@ public class Map {
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall"),
                                 new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
-                        {new MapObject("dark_wall"), new MapObject("door"), new MapObject("floor"), // 3
+                        {new MapObject("dark_wall"), new MapObject("wall", "door"), new MapObject("floor"), // 3
                                 new MapObject("character", "me"), new MapObject("floor"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("wall"), new MapObject("dark_wall"),
                                 new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")},
@@ -628,7 +629,7 @@ public class Map {
                                 new MapObject("floor"), new MapObject("floor"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("floor", "dance_floor"), new MapObject("floor", "dance_floor"),
                                 new MapObject("floor", "dance_floor"), new MapObject("wall"), new MapObject("dark_wall")},
-                        {new MapObject("dark_wall"), new MapObject("door"), new MapObject("floor"), // 7
+                        {new MapObject("dark_wall"), new MapObject("wall"), new MapObject("floor"), // 7
                                 new MapObject("floor"), new MapObject("table"), new MapObject("floor"),
                                 new MapObject("floor"), new MapObject("floor", "dance_floor"), new MapObject("floor", "dance_floor"),
                                 new MapObject("floor", "dance_floor"), new MapObject("wall"), new MapObject("dark_wall")},
@@ -662,7 +663,7 @@ public class Map {
                                 new MapObject("dark_wall"), new MapObject("dark_wall"), new MapObject("dark_wall")}
                 };
                 // Биндим id к дверям
-                // map[3][1];
+                // map[3][1]; поменять тип объекта на карте
                 map[12][1].setDoorId("5");
                 // Устанавливаем фразы для персонажей
                 map[3][3].setText("Эй! Как ты сюда пробрался??");

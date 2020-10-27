@@ -44,7 +44,7 @@
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_info_top"
-            android:text="Black Game v0.6.5"
+            android:text="Black Game v0.7.0"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
@@ -55,7 +55,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Добавлен бар и коридор, ведущий к нему."
+            android:text="Добавлена авторизация пользователей."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -65,18 +65,8 @@
             android:layout_marginBottom="8dp"
             android:background="@color/colorPrimary"
             android:padding="8dp"
-            android:text="Добавлен новый режим 'Dance'."
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@color/colorPrimary"
-            android:padding="8dp"
-            android:text="Добавлены правила для режима 'Dance'.
-Обновлены скриншоты в правилах для режима 'Black Jack'."
+            android:text="Большая часть изображеий теперь хранится
+в облаке, поэтому приложение занимает меньше места на смартфоне."
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 

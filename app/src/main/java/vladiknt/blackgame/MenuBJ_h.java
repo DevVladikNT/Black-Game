@@ -1,14 +1,24 @@
 package vladiknt.blackgame;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class MenuBJ_h extends AppCompatActivity {
 
@@ -19,6 +29,21 @@ public class MenuBJ_h extends AppCompatActivity {
         TextView tv = findViewById(R.id.finish);
         tv.clearComposingText();
         tv.setText("Ваш баланс: " + PlayerInfo.money);
+
+        // Загрузка и установка изображения
+        ImageView image = findViewById(R.id.startImage);
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference ref = storageReference.child("images/anime18_5.jpg");
+        final long FIVE_MEGABYTES = 5 * 1024 * 1024;
+        ref.getBytes(FIVE_MEGABYTES).addOnSuccessListener(bytesPrm -> {
+            Bitmap bmp = BitmapFactory.decodeByteArray(bytesPrm, 0, bytesPrm.length);
+            image.setImageBitmap(bmp);
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                //
+            }
+        });
 
         RadioButton rb;
         switch (PlayerInfo.hBet) {
