@@ -2,6 +2,12 @@
 
 This is my android app for playing several games in "mini-casino".
 
+It has:
+- Black Jack
+- Roulette
+- VNT-Slots
+- Dance
+
 ### Others
 
 You need Android v8.0 and higher on mobile for correct work.<br>
